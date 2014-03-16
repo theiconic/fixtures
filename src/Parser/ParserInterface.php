@@ -10,10 +10,10 @@ namespace TheIconic\Fixtures\Parser;
 interface ParserInterface
 {
     /**
-     * Parses the source file with the right parser.
+     * Parses the source files with the right parser.
      *
      * @param $source
-     * @return array
+     * @return \TheIconic\Fixtures\Fixture\FixtureCollection
      */
     public function parse($source);
 
