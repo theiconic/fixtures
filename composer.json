@@ -11,7 +11,8 @@
     "require": {
         "php": ">=5.4",
         "symfony/yaml": "v2.4.2",
-        "symfony/finder": "v2.4.2"
+        "symfony/finder": "v2.4.2",
+        "symfony/filesystem": "v2.4.2"
     },
     "require-dev": {
         "phpunit/phpunit": "4.0.*"
