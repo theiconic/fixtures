@@ -18,7 +18,7 @@ interface ParserInterface
     public function parse($source);
 
     /**
-     * Indicates if a source file is parsable by the this parser.
+     * Indicates if a source file is parsable by this parser.
      *
      * @param $source
      * @return boolean
