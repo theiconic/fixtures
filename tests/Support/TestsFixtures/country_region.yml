@@ -1,0 +1,49 @@
+country_region:
+  -
+    id_country_region: 17
+    fk_country: 15
+    code: AU-WA
+    name: Western Australia
+    sort: null
+  -
+    id_country_region: 18
+    fk_country: 15
+    code: AU-VIC
+    name: Victoria
+    sort: null
+  -
+    id_country_region: 19
+    fk_country: 15
+    code: AU-TAS
+    name: Tasmania
+    sort: null
+  -
+    id_country_region: 20
+    fk_country: 15
+    code: AU-SA
+    name: South Australia
+    sort: null
+  -
+    id_country_region: 21
+    fk_country: 15
+    code: AU-QLD
+    name: Queensland
+    sort: null
+  -
+    id_country_region: 22
+    fk_country: 15
+    code: AU-NT
+    name: Northern Territory
+    sort: null
+  -
+    id_country_region: 23
+    fk_country: 15
+    code: AU-NSW
+    name: New South Wales
+    sort: 0
+  -
+    id_country_region: 24
+    fk_country: 15
+    code: AU-ACT
+    name: Australian Capital Territory
+    sort: null
