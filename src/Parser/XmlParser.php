@@ -48,7 +48,7 @@ class XmlParser extends AbstractParser
                     $attribute = (string) $attribute;
                     $value = (string) $node->field[$i];
 
-                    if (!empty($value)) {
+                    if ($value !== '') {
                         $fixtureArray[$tableName][$rowNum][$attribute] = $value;
                     }
                 }
