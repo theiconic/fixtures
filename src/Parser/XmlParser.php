@@ -5,10 +5,26 @@ namespace TheIconic\Fixtures\Parser;
 use TheIconic\Fixtures\Fixture\FixtureCollection;
 use TheIconic\Fixtures\Exception\InvalidParserException;
 
+/**
+ * Class XmlParser
+ * @package TheIconic\Fixtures\Parser
+ */
 class XmlParser extends AbstractParser
 {
+    /**
+     * XML extension
+     *
+     * @var string
+     */
     protected static $parsableExtension = '.xml';
 
+    /**
+     * Parses and MySQL dump XML file.
+     *
+     * @param $source
+     * @return FixtureCollection
+     * @throws \TheIconic\Fixtures\Exception\InvalidParserException
+     */
     public function parse($source)
     {
         $data = [];
