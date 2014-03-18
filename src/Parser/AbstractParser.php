@@ -23,6 +23,6 @@ abstract class AbstractParser implements ParserInterface
      */
     public function isParsable($source)
     {
-        return strpos($source, static::$parsableExtension) !== false;
+        return !empty(static::$parsableExtension) && strpos($source, static::$parsableExtension) !== false;
     }
 }
