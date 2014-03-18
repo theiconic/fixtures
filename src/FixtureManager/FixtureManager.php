@@ -135,12 +135,11 @@ class FixtureManager
         }
 
         foreach ($sources as $source) {
+            $fixture = $this->parser->parse($source);
             if ($this->fixtureCollection === null) {
-                $this->fixtureCollection = $this->parser->parse($source);
+                $this->fixtureCollection = FixtureCollection::create($fixture);
             } else {
-                foreach ($this->parser->parse($source) as $fixture) {
-                    $this->fixtureCollection->add($fixture);
-                }
+                $this->fixtureCollection->add($fixture);
             }
         }
 

@@ -31,12 +31,14 @@ class Fixture implements \IteratorAggregate, \Countable
     /**
      * Creates a new fixture.
      *
-     * @param $name
-     * @param array $data
+     * @param array $fixtureArray
      * @return Fixture
      */
-    public static function create($name, array $data)
+    public static function create(array $fixtureArray)
     {
+        $name = key($fixtureArray);
+        $data = $fixtureArray[$name];
+
         $fixture = new self($name, $data);
 
         return $fixture;

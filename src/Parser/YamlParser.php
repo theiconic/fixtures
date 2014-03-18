@@ -2,7 +2,7 @@
 
 namespace TheIconic\Fixtures\Parser;
 
-use TheIconic\Fixtures\Fixture\FixtureCollection;
+use TheIconic\Fixtures\Fixture\Fixture;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -21,12 +21,12 @@ class YamlParser extends AbstractParser
      * Parses a Yaml file.
      *
      * @param $source
-     * @return FixtureCollection
+     * @return Fixture
      */
     public function parse($source)
     {
         $fixtureArray = Yaml::parse(file_get_contents($source));
 
-        return FixtureCollection::create($fixtureArray);
+        return Fixture::create($fixtureArray);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace TheIconic\Fixtures\Parser;
 
-use TheIconic\Fixtures\Fixture\FixtureCollection;
+use TheIconic\Fixtures\Fixture\Fixture;
 use TheIconic\Fixtures\Exception\InvalidParserException;
 
 /**
@@ -22,12 +22,12 @@ class XmlParser extends AbstractParser
      * Parses and MySQL dump XML file.
      *
      * @param $source
-     * @return FixtureCollection
+     * @return Fixture
      * @throws \TheIconic\Fixtures\Exception\InvalidParserException
      */
     public function parse($source)
     {
-        $data = [];
+        $fixtureArray = [];
         $z = new \XMLReader;
         $z->open($source);
 
@@ -49,7 +49,7 @@ class XmlParser extends AbstractParser
                     $value = (string) $node->field[$i];
 
                     if (!empty($value)) {
-                        $data[$tableName][$rowNum][$attribute] = $value;
+                        $fixtureArray[$tableName][$rowNum][$attribute] = $value;
                     }
                 }
             }
@@ -58,10 +58,10 @@ class XmlParser extends AbstractParser
             $z->next('row');
         }
 
-        if (empty($data)) {
+        if (empty($fixtureArray)) {
             throw new InvalidParserException("It was not possible to parse the XML file: $source");
         }
 
-        return FixtureCollection::create($data);
+        return Fixture::create($fixtureArray);
     }
 }

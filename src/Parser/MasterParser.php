@@ -57,7 +57,7 @@ class MasterParser extends AbstractParser
      * {@inheritDoc}
      *
      * @param $source
-     * @return \TheIconic\Fixtures\Fixture\FixtureCollection
+     * @return \TheIconic\Fixtures\Fixture\Fixture
      * @throws \TheIconic\Fixtures\Exception\ParserNotFoundException
      */
     public function parse($source)

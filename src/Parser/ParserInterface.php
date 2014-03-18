@@ -13,7 +13,7 @@ interface ParserInterface
      * Parses the source files with the right parser.
      *
      * @param $source
-     * @return \TheIconic\Fixtures\Fixture\FixtureCollection
+     * @return \TheIconic\Fixtures\Fixture\Fixture
      */
     public function parse($source);
 

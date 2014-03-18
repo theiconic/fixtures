@@ -20,16 +20,14 @@ class FixtureCollection implements \IteratorAggregate, \Countable
     /**
      * Creates a fixture collection.
      *
-     * @param array $fixtureArray
+     * @param Fixture $fixture
      * @return FixtureCollection
      */
-    public static function create(array $fixtureArray)
+    public static function create(Fixture $fixture)
     {
         $fixtureCollection = new self();
 
-        foreach ($fixtureArray as $fixtureName => $fixtureData) {
-            $fixtureCollection->add(Fixture::create($fixtureName, $fixtureData));
-        }
+        $fixtureCollection->add($fixture);
 
         return $fixtureCollection;
     }
