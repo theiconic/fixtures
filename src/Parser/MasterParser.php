@@ -69,7 +69,7 @@ class MasterParser extends AbstractParser
             }
         }
 
-        throw new ParserNotFoundException('No parser found for this file type');
+        throw new ParserNotFoundException('No parser found for this file type: ' . $source);
     }
 
     /**
