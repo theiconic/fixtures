@@ -5,7 +5,7 @@ namespace TheIconic\Fixtures\FixtureManager;
 use TheIconic\Fixtures\Fixture\FixtureCollection;
 use TheIconic\Fixtures\Parser\ParserInterface;
 use TheIconic\Fixtures\Parser\MasterParser;
-use TheIconic\Fixtures\Persister\PDOPersister;
+use TheIconic\Fixtures\Persister\PDO\PersisterFactory;
 use TheIconic\Fixtures\Persister\PersisterInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use TheIconic\Fixtures\Exception\SourceNotFoundException;
@@ -101,7 +101,7 @@ class FixtureManager
     }
 
     /**
-     * Initializes and sets a PDO persister.
+     * Initializes and sets the default PDO persister.
      *
      * @param $host
      * @param $database
@@ -109,9 +109,9 @@ class FixtureManager
      * @param $password
      * @return $this
      */
-    public function setPDOPersister($host, $database, $username, $password)
+    public function setDefaultPDOPersister($host, $database, $username, $password)
     {
-        $this->setPersister(new PDOPersister($host, $database, $username, $password));
+        $this->setPersister(PersisterFactory::create($host, $database, $username, $password));
 
         return $this;
     }

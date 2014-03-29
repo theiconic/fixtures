@@ -1,69 +1,35 @@
 <?php
 
-namespace TheIconic\Fixtures\Persister;
+namespace TheIconic\Fixtures\Persister\PDO;
 
 use TheIconic\Fixtures\Fixture\Fixture;
-use PDO;
-use PDOException;
 
 /**
- * Class PDOPersister
- * @package TheIconic\Fixtures\Persister
+ * Class MySQLPersister
+ * @package TheIconic\Fixtures\Persister\PDO
  */
-class PDOPersister implements PersisterInterface
+class MySQLPersister extends AbstractPDOPersister
 {
-    const DRIVER_NAME_MYSQL = 'mysql';
+    /**
+     * Name for base tables in MySQL, this is to differentiate from Views when truncating.
+     */
     const MYSQL_TABLE_TYPE_BASE_TABLE = 'BASE TABLE';
 
     /**
-     * @var PDO
+     * Name for the MySQL driver.
      */
-    private $conn;
+    const DRIVER_NAME_MYSQL = 'mysql';
 
     /**
-     * @var array
-     */
-    private $config;
-
-    /**
-     * Returns the PDO connection to database.
-     *
-     * @return PDO
-     */
-    private function getConnection()
-    {
-        if ($this->conn === null) {
-            try {
-                $dsn = $this->config['driver']
-                    . ':host=' . $this->config['host']
-                    . ';dbname=' . $this->config['database'];
-
-                $this->conn = new PDO($dsn, $this->config['username'], $this->config['password']);
-                $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            } catch (PDOException $e) {
-                echo 'ERROR: ' . $e->getMessage();
-            }
-        }
-
-        return $this->conn;
-    }
-
-    /**
-     * On construction, saves connection parameters.
-     *
+     * On construction, create a new MySQL Persister instance.
      * @param $host
      * @param $database
      * @param $username
      * @param $password
-     * @param string $driver
      */
-    public function __construct($host, $database, $username, $password, $driver = self::DRIVER_NAME_MYSQL)
+    public function __construct($host, $database, $username, $password)
     {
-        $this->config['driver'] = $driver;
-        $this->config['host'] = $host;
-        $this->config['database'] = $database;
-        $this->config['username'] = $username;
-        $this->config['password'] = $password;
+        parent::__construct($host, $database, $username, $password, self::DRIVER_NAME_MYSQL);
     }
 
     /**
@@ -103,19 +69,6 @@ class PDOPersister implements PersisterInterface
      *
      * @return bool
      */
-    public function close()
-    {
-        $this->conn = null;
-
-        return true;
-    }
-
-
-    /**
-     * {@inheritDoc}
-     *
-     * @return bool
-     */
     public function cleanStorage()
     {
         $database = $this->config['database'];
@@ -127,9 +80,7 @@ class PDOPersister implements PersisterInterface
         foreach ($query as $row) {
             list($tableName, $tableType) = $row;
 
-            if ($this->config['driver'] === self::DRIVER_NAME_MYSQL
-                && $tableType !== self::MYSQL_TABLE_TYPE_BASE_TABLE
-            ) {
+            if ($tableType !== self::MYSQL_TABLE_TYPE_BASE_TABLE) {
                 continue;
             }
 
