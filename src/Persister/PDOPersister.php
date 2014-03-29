@@ -12,6 +12,9 @@ use PDOException;
  */
 class PDOPersister implements PersisterInterface
 {
+    const DRIVER_NAME_MYSQL = 'mysql';
+    const MYSQL_TABLE_TYPE_BASE_TABLE = 'BASE TABLE';
+
     /**
      * @var PDO
      */
@@ -54,7 +57,7 @@ class PDOPersister implements PersisterInterface
      * @param $password
      * @param string $driver
      */
-    public function __construct($host, $database, $username, $password, $driver = 'mysql')
+    public function __construct($host, $database, $username, $password, $driver = self::DRIVER_NAME_MYSQL)
     {
         $this->config['driver'] = $driver;
         $this->config['host'] = $host;
@@ -103,6 +106,37 @@ class PDOPersister implements PersisterInterface
     public function close()
     {
         $this->conn = null;
+
+        return true;
+    }
+
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return bool
+     */
+    public function cleanStorage()
+    {
+        $database = $this->config['database'];
+
+        $this->getConnection()->query("SET FOREIGN_KEY_CHECKS = 0;");
+
+        $query = $this->getConnection()->query("SHOW FULL TABLES FROM `$database`;");
+
+        foreach ($query as $row) {
+            list($tableName, $tableType) = $row;
+
+            if ($this->config['driver'] === self::DRIVER_NAME_MYSQL
+                && $tableType !== self::MYSQL_TABLE_TYPE_BASE_TABLE
+            ) {
+                continue;
+            }
+
+            $this->getConnection()->query("TRUNCATE `$database`.`$tableName`;");
+        }
+
+        $this->getConnection()->query("SET FOREIGN_KEY_CHECKS = 1;");
 
         return true;
     }

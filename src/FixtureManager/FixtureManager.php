@@ -176,5 +176,17 @@ class FixtureManager
 
         return $this;
     }
+
+    /**
+     * Completely cleans the persistence storage.
+     *
+     * @return $this
+     */
+    public function cleanStorage()
+    {
+        $this->getPersister()->cleanStorage();
+
+        return $this;
+    }
 }
 
