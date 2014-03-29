@@ -26,6 +26,7 @@ abstract class AbstractPDOPersister implements PersisterInterface
     /**
      * Returns the PDO connection to database.
      *
+     * @throws PersisterException
      * @return PDO
      */
     protected function getConnection()
