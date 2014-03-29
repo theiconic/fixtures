@@ -155,7 +155,7 @@ class FixtureManager
     public function persist()
     {
         if ($this->persister === null) {
-            throw new \Exception('No persister has been set');
+            throw new \RuntimeException('No persister has been set');
         }
 
         foreach ($this->fixtureCollection as $fixture) {
