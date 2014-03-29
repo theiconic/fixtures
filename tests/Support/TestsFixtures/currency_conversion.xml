@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<database name="bob_live_au">
+<database name="theiconic_bd">
 	<table_data name="currency_conversion">
 	<row>
 		<field name="id_currency_conversion">8286</field>
