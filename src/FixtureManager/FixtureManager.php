@@ -35,11 +35,9 @@ class FixtureManager
      * On construction, initializes the fixture collection.
      *
      * @param $sources
-     * @param ParserInterface $parser
      */
-    private function __construct($sources, ParserInterface $parser)
+    private function __construct($sources)
     {
-        $this->parser = $parser;
         $this->fixtureCollection = $this->parse($sources);
     }
 
@@ -55,9 +53,7 @@ class FixtureManager
             $sources = [$sources];
         }
 
-        $parser = new MasterParser();
-
-        return new self($sources, $parser);
+        return new self($sources);
     }
 
     /**
@@ -150,7 +146,7 @@ class FixtureManager
         }
 
         foreach ($sources as $source) {
-            $fixture = $this->parser->parse($source);
+            $fixture = $this->getParser()->parse($source);
             if ($this->fixtureCollection === null) {
                 $this->fixtureCollection = FixtureCollection::create($fixture);
             } else {
