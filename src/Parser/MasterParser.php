@@ -13,11 +13,6 @@ use Symfony\Component\Finder\Finder;
 class MasterParser extends AbstractParser
 {
     /**
-     * Namespace to the parsers.
-     */
-    const THEICONIC_FIXTURES_PARSER_NAMESPACE = 'TheIconic\\Fixtures\\Parser\\';
-
-    /**
      * Substring contained by Master parser class.
      */
     const MASTER_CLASS_SUBSTRING = 'Master';
@@ -86,7 +81,7 @@ class MasterParser extends AbstractParser
             $parserNames = $this->getParserNames();
 
             foreach ($parserNames as $parserClass) {
-                $parserClass = static::THEICONIC_FIXTURES_PARSER_NAMESPACE . $parserClass;
+                $parserClass = __NAMESPACE__ . '\\' . $parserClass;
 
                 $parserInstance = $this->getParserInstance($parserClass);
 
