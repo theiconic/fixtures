@@ -117,6 +117,21 @@ class FixtureManager
     }
 
     /**
+     * Gets the persister instance currently set.
+     *
+     * @return PersisterInterface
+     * @throws \RuntimeException
+     */
+    private function getPersister()
+    {
+        if ($this->persister === null) {
+            throw new \RuntimeException('No persister has been set');
+        }
+
+        return $this->persister;
+    }
+
+    /**
      * Parses the source files to create the fixtures.
      * Initializes a the fixture collection, adds fixtures in case there is already one set.
      *
@@ -150,19 +165,14 @@ class FixtureManager
      * Persists all loaded fixtures in the collection to storage.
      *
      * @return $this
-     * @throws \Exception
      */
     public function persist()
     {
-        if ($this->persister === null) {
-            throw new \RuntimeException('No persister has been set');
-        }
-
         foreach ($this->fixtureCollection as $fixture) {
-            $this->persister->persist($fixture);
+            $this->getPersister()->persist($fixture);
         }
 
-        $this->persister->close();
+        $this->getPersister()->close();
 
         return $this;
     }
