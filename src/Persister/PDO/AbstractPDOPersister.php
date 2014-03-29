@@ -2,6 +2,7 @@
 
 namespace TheIconic\Fixtures\Persister\PDO;
 
+use TheIconic\Fixtures\Exception\PersisterException;
 use TheIconic\Fixtures\Persister\PersisterInterface;
 use PDO;
 use PDOException;
@@ -38,7 +39,7 @@ abstract class AbstractPDOPersister implements PersisterInterface
                 $this->conn = new PDO($dsn, $this->config['username'], $this->config['password']);
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
-                echo 'ERROR: ' . $e->getMessage();
+                throw new PersisterException('PDO Exception: ' . $e->getMessage());
             }
         }
 
