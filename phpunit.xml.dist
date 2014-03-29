@@ -13,4 +13,10 @@
             <directory>./vendor</directory>
         </blacklist>
     </filter>
+    <php>
+        <env name="host" value="127.0.0.1"/>
+        <env name="database" value="fixtures_bd"/>
+        <env name="username" value="root"/>
+        <env name="password" value=""/>
+    </php>
 </phpunit>
