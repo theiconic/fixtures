@@ -35,9 +35,9 @@ class MasterParserTest extends \PHPUnit_Framework_TestCase
     {
         $fixtureFile = self::TESTS_FIXTURES_DIRECTORY . 'customer_address_region_suburb.xml';
 
-        $fixtureCountry = $this->parserInstance->parse($fixtureFile);
+        $fixtureAddress = $this->parserInstance->parse($fixtureFile);
 
-        $this->assertInstanceOf('TheIconic\Fixtures\Fixture\Fixture', $fixtureCountry);
+        $this->assertInstanceOf('TheIconic\Fixtures\Fixture\Fixture', $fixtureAddress);
     }
 
     public function testGetAvailableParsers()
