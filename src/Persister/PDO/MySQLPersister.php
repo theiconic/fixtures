@@ -47,6 +47,7 @@ class MySQLPersister extends AbstractPDOPersister
 
         $this->getConnection()->query("TRUNCATE `$database`.`$table`;");
 
+        $success = true;
         foreach ($fixture as $fixtureData) {
             $columns = array_keys($fixtureData);
             $columns = implode('`, `', $columns);
@@ -56,12 +57,12 @@ class MySQLPersister extends AbstractPDOPersister
 
             $sql = "INSERT INTO `$database`.`$table` (`$columns`) VALUES('$values');";
             $pdoStatement = $this->getConnection()->prepare($sql);
-            $pdoStatement->execute();
+            $success = $success && $pdoStatement->execute();
         }
 
         $this->getConnection()->query("SET FOREIGN_KEY_CHECKS = 1;");
 
-        return true;
+        return $success;
     }
 
     /**
@@ -77,6 +78,7 @@ class MySQLPersister extends AbstractPDOPersister
 
         $query = $this->getConnection()->query("SHOW FULL TABLES FROM `$database`;");
 
+        $success = true;
         foreach ($query as $row) {
             list($tableName, $tableType) = $row;
 
@@ -84,11 +86,13 @@ class MySQLPersister extends AbstractPDOPersister
                 continue;
             }
 
-            $this->getConnection()->query("TRUNCATE `$database`.`$tableName`;");
+            $result = $this->getConnection()->query("TRUNCATE `$database`.`$tableName`;");
+
+            $success = $success && $result instanceof \PDOStatement;
         }
 
         $this->getConnection()->query("SET FOREIGN_KEY_CHECKS = 1;");
 
-        return true;
+        return $success;
     }
 }
