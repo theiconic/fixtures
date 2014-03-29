@@ -10,7 +10,7 @@ class MasterParserTest extends \PHPUnit_Framework_TestCase
 
     const TESTS_FIXTURES_DIRECTORY = './tests/Support/TestsFixtures/';
 
-    const CURRENT_NUMBER_OF_PARSERS = 1;
+    const CURRENT_NUMBER_OF_PARSERS = 2;
 
     /**
      * @var MasterParser
@@ -22,11 +22,29 @@ class MasterParserTest extends \PHPUnit_Framework_TestCase
         $this->parserInstance = new MasterParser();
     }
 
+    public function testYamlParseViaMaster()
+    {
+        $fixtureFile = self::TESTS_FIXTURES_DIRECTORY . 'country_region.yml';
+
+        $fixtureCountry = $this->parserInstance->parse($fixtureFile);
+
+        $this->assertInstanceOf('TheIconic\Fixtures\Fixture\Fixture', $fixtureCountry);
+    }
+
+    public function testXmlParseViaMaster()
+    {
+        $fixtureFile = self::TESTS_FIXTURES_DIRECTORY . 'customer_address_region_suburb.xml';
+
+        $fixtureCountry = $this->parserInstance->parse($fixtureFile);
+
+        $this->assertInstanceOf('TheIconic\Fixtures\Fixture\Fixture', $fixtureCountry);
+    }
+
     public function testGetAvailableParsers()
     {
         $availableParsers = $this->parserInstance->getAvailableParsers();
 
-        $this->assertCount(1, $availableParsers);
+        $this->assertCount(self::CURRENT_NUMBER_OF_PARSERS, $availableParsers);
 
         foreach ($availableParsers as $parser) {
             $this->assertInstanceOf(self::PARSER_INTERFACE_FULLY_QUALIFIED_NAME, $parser);
@@ -64,11 +82,6 @@ class MasterParserTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue(null));
 
         $parserInstance->getAvailableParsers();
-    }
-
-    public function testParse()
-    {
-        //print_r($this->parserInstance->parse('./tests/Support/TestsFixtures/country.yml'));
     }
 
     /**
