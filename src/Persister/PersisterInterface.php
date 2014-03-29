@@ -24,4 +24,11 @@ interface PersisterInterface
      * @return boolean
      */
     public function close();
+
+    /**
+     * Completely cleans the persistence storage, leaving it ready for start loading the fixtures.
+     *
+     * @return boolean
+     */
+    public function cleanStorage();
 }
