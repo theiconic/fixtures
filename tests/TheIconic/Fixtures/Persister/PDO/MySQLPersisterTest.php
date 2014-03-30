@@ -25,6 +25,7 @@ class MysqlPersisterTest extends \PHPUnit_Framework_TestCase
 
     public function testPersist()
     {
+
         $persister = new MysqlPersister(
             $_ENV['host'],
             $_ENV['database'],
