@@ -44,7 +44,10 @@ That's it!
 Also, FixtureManager has a fluent interface, this means you can chain method calls like...
 
 ```php
-$fixtureManager->setDefaultPDOPersister('127.0.0.1', 'test_database', 'root', '123abc')->cleanStorage()->persist();
+$fixtureManager
+    ->setDefaultPDOPersister('127.0.0.1', 'test_database', 'root', '123abc')
+    ->cleanStorage()
+    ->persist();
 ```
 
 ## Installation
