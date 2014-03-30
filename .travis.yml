@@ -3,9 +3,13 @@ php:
   - "5.5"
   - "5.4"
 install:
-  - composer install
+  - composer install --dev --no-interaction
   - composer dump-autoload -o
 before_script:
   - mysql -e 'create database fixtures_tests;'
   - mysql -u root fixtures_tests < ./tests/Support/Scripts/create_fixtures_db.sql
-
+script:
+ - mkdir -p build/logs
+ - phpunit --coverage-clover build/logs/clover.xml
+after_script:
+ - php vendor/bin/coveralls -v
