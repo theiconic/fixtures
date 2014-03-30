@@ -2,6 +2,7 @@
 
 namespace TheIconic\Fixtures\Persister\PDO;
 
+use TheIconic\Fixtures\Exception\PersisterException;
 use TheIconic\Fixtures\Fixture\Fixture;
 
 /**
@@ -59,8 +60,14 @@ class MysqlPersister extends AbstractPDOPersister
             $placeholders = implode(", ", array_keys($values));
 
             $sql = "INSERT INTO `$database`.`$table` (`$columns`) VALUES($placeholders);";
+
             $pdoStatement = $this->getConnection()->prepare($sql);
-            $success = $success && $pdoStatement->execute($values);
+
+            try {
+                $success = $success && $pdoStatement->execute($values);
+            } catch (\PDOException $e) {
+                throw new PersisterException("ERROR with fixture '$table': " . $e->getMessage());
+            }
         }
 
         $this->getConnection()->query("SET FOREIGN_KEY_CHECKS = 1;");
