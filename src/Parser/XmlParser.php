@@ -47,8 +47,9 @@ class XmlParser extends AbstractParser
                 foreach ($node->field[$i]->attributes() as $attribute) {
                     $attribute = (string) $attribute;
                     $value = (string) $node->field[$i];
+                    $namespaces = $node->field[$i]->getNamespaces(true);
 
-                    if ($value !== '') {
+                    if (empty($namespaces)) {
                         $fixtureArray[$tableName][$rowNum][$attribute] = $value;
                     }
                 }
