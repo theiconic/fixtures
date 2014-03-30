@@ -54,12 +54,40 @@ $fixtureManager
 
 Use Composer to install this package.
 
-``` json
+```json
 {
     "require": {
         "theiconic/fixtures": "~1.2"
     }
 }
+```
+
+## Fixtures Files Examples
+
+***XML***, use it when you are dealing with fixtures that have NULL values.
+```xml
+<?xml version="1.0"?>
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database name="my_database">
+	<table_data name="country">
+		<row>
+			<field name="id">1</field>
+			<field name="name">Australia</field>
+			<field name="size" xsi:nil="true" />
+		</row>
+	</table_data>
+</database>
+</mysqldump>
+```
+
+***Yaml***, use it for simple data that does not has NULL values.
+```yaml
+country:
+  -
+    id_country: 2
+    iso2_code: AD
+    iso3_code: AND
+    name: Andorra
 ```
 
 ## Contributors
