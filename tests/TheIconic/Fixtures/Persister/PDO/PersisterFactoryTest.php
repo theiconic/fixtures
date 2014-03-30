@@ -14,7 +14,7 @@ class PersisterFactoryTest extends \PHPUnit_Framework_TestCase
             'mysql'
         );
 
-        $this->assertInstanceOf('TheIconic\Fixtures\Persister\PDO\MySQLPersister', $persister);
+        $this->assertInstanceOf('TheIconic\Fixtures\Persister\PDO\MysqlPersister', $persister);
     }
 
     /**

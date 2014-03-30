@@ -5,10 +5,10 @@ namespace TheIconic\Fixtures\Persister\PDO;
 use TheIconic\Fixtures\Fixture\Fixture;
 
 /**
- * Class MySQLPersister
+ * Class MysqlPersister
  * @package TheIconic\Fixtures\Persister\PDO
  */
-class MySQLPersister extends AbstractPDOPersister
+class MysqlPersister extends AbstractPDOPersister
 {
     /**
      * Name for base tables in MySQL, this is to differentiate from Views when truncating.

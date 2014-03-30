@@ -3,7 +3,6 @@
 namespace TheIconic\Fixtures\Persister\PDO;
 
 use TheIconic\Fixtures\Exception\PersisterException;
-use TheIconic\Fixtures\Persister\PDO\MySQLPersister;
 
 /**
  * Class PersisterFactory
@@ -29,7 +28,7 @@ class PersisterFactory
      */
     public static function create($host, $database, $username, $password, $driver = self::DEFAULT_PDO_PERSISTER_DRIVER)
     {
-        $pdoPersisterClass = __NAMESPACE__ . '\\' .  $driver . 'Persister';
+        $pdoPersisterClass = __NAMESPACE__ . '\\' .  ucfirst($driver) . 'Persister';
 
         if (!class_exists($pdoPersisterClass)) {
             throw new PersisterException('Persister class ' . $pdoPersisterClass . ' for this driver is not defined: '. $driver);
