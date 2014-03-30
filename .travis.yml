@@ -1,0 +1,14 @@
+language: php
+php:
+  - "5.5"
+  - "5.4"
+  - hhvm
+install:
+  - composer install
+cache:
+  directories:
+  - vendor
+before_script:
+  - mysql -e 'create database fixtures_bd;'
+  - mysql -u root -p fixtures_db < ./tests/Support/Scripts/create_fixtures_db.sql
+
