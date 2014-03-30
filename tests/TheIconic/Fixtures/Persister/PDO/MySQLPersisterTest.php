@@ -1,7 +1,5 @@
 <?php
 
-namespace TheIconic\Fixtures\Persister\PDO;
-
 use TheIconic\Fixtures\Fixture\Fixture;
 
 class MysqlPersisterTest extends \PHPUnit_Framework_TestCase
@@ -26,7 +24,7 @@ class MysqlPersisterTest extends \PHPUnit_Framework_TestCase
     public function testPersist()
     {
 
-        $persister = new MysqlPersister(
+        $persister = new TheIconic\Fixtures\Persister\PDO\MysqlPersister(
             $_ENV['host'],
             $_ENV['database'],
             $_ENV['username'],
@@ -39,7 +37,7 @@ class MysqlPersisterTest extends \PHPUnit_Framework_TestCase
 
     public function testCleanStorage()
     {
-        $persister = new MysqlPersister(
+        $persister = new TheIconic\Fixtures\Persister\PDO\MysqlPersister(
             $_ENV['host'],
             $_ENV['database'],
             $_ENV['username'],
@@ -56,7 +54,7 @@ class MysqlPersisterTest extends \PHPUnit_Framework_TestCase
      */
     public function testInvalidConnection()
     {
-        $persister = new MysqlPersister(
+        $persister = new TheIconic\Fixtures\Persister\PDO\MysqlPersister(
             $_ENV['host'],
             $_ENV['database'],
             $_ENV['username'],

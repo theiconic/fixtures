@@ -5,6 +5,7 @@ php:
   - hhvm
 install:
   - composer install
+  - composer dump-autoload -o
 before_script:
   - mysql -e 'create database fixtures_tests;'
   - mysql -u root fixtures_tests < ./tests/Support/Scripts/create_fixtures_db.sql
