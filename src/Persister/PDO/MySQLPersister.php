@@ -52,7 +52,7 @@ class MysqlPersister extends AbstractPDOPersister
             $columns = array_keys($fixtureData);
             $columns = implode('`, `', $columns);
 
-            $values = array_map('mysql_real_escape_string', $fixtureData);
+            $values = array_map('mysqli_real_escape_string', $fixtureData);
             $values = implode("', '", $values);
 
             $sql = "INSERT INTO `$database`.`$table` (`$columns`) VALUES('$values');";
