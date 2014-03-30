@@ -3,7 +3,7 @@ php:
   - "5.5"
   - "5.4"
 install:
-  - composer install --dev --no-interaction
+  - composer install
   - composer dump-autoload -o
 before_script:
   - mysql -e 'create database fixtures_tests;'
