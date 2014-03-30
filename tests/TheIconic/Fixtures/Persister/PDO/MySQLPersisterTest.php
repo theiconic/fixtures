@@ -11,6 +11,13 @@ class MysqlPersisterTest extends \PHPUnit_Framework_TestCase
         ]
     ];
 
+    private $testParsedBadData = [
+        'country' => [
+            ['id_countri' => 1, 'iso2_code' => 'AU', 'iso3_code' => 'AUS', 'name' => 'Australia'],
+            ['id_country' => 2, 'iso2_code' => 'VE', 'iso3_code' => 'VEN', 'name' => 'Venezuela'],
+        ]
+    ];
+
     /**
      * @var Fixture
      */
@@ -33,6 +40,22 @@ class MysqlPersisterTest extends \PHPUnit_Framework_TestCase
 
         $this->assertTrue($persister->persist($this->testFixture));
         $this->assertTrue($persister->close());
+    }
+
+    /**
+     * @expectedException \TheIconic\Fixtures\Exception\PersisterException
+     */
+    public function testInvalidPersist()
+    {
+
+        $persister = new TheIconic\Fixtures\Persister\PDO\MysqlPersister(
+            $_ENV['host'],
+            $_ENV['database'],
+            $_ENV['username'],
+            $_ENV['password']
+        );
+
+        $persister->persist(Fixture::create($this->testParsedBadData));
     }
 
     public function testCleanStorage()
