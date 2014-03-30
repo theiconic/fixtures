@@ -6,9 +6,12 @@ THE ICONIC Database Fixtures
 
 Fixture manager that allows you to easily load your test data fixtures from different formats into your test database.
 With an extensible design, it currently support fixtures in the following formats:
+
 * Yaml
-* MySQL XML dump
+* MySQL XML Dump
+
 And it currently supports the following databases:
+
 * MySQL
 
 ## Usage
