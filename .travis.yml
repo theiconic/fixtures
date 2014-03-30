@@ -9,6 +9,6 @@ cache:
   directories:
   - vendor
 before_script:
-  - mysql -e 'create database fixtures_bd;'
+  - mysql -e 'create database fixtures_tests;'
   - mysql -u root fixtures_db < ./tests/Support/Scripts/create_fixtures_db.sql
 
