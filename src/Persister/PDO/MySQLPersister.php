@@ -52,12 +52,15 @@ class MysqlPersister extends AbstractPDOPersister
             $columns = array_keys($fixtureData);
             $columns = implode('`, `', $columns);
 
-            $values = array_map('mysqli_real_escape_string', $fixtureData);
-            $values = implode("', '", $values);
+            $values = [];
+            foreach ($fixtureData as $attribute => $value) {
+                $values[':' . $attribute] = $value;
+            }
+            $placeholders = implode(", ", array_keys($values));
 
-            $sql = "INSERT INTO `$database`.`$table` (`$columns`) VALUES('$values');";
+            $sql = "INSERT INTO `$database`.`$table` (`$columns`) VALUES($placeholders);";
             $pdoStatement = $this->getConnection()->prepare($sql);
-            $success = $success && $pdoStatement->execute();
+            $success = $success && $pdoStatement->execute($values);
         }
 
         $this->getConnection()->query("SET FOREIGN_KEY_CHECKS = 1;");
