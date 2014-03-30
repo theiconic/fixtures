@@ -38,7 +38,7 @@ class FixtureManager
      */
     private function __construct($sources)
     {
-        $this->fixtureCollection = $this->parse($sources);
+        $this->parse($sources);
     }
 
     /**
@@ -132,7 +132,7 @@ class FixtureManager
      * Initializes a the fixture collection, adds fixtures in case there is already one set.
      *
      * @param array $sources
-     * @return FixtureCollection
+     * @return $this
      * @throws \TheIconic\Fixtures\Exception\SourceNotFoundException
      */
     public function parse(array $sources)
@@ -154,7 +154,7 @@ class FixtureManager
             }
         }
 
-        return $this->fixtureCollection;
+        return $this;
     }
 
     /**
