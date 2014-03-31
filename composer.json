@@ -2,6 +2,7 @@
     "name": "theiconic/fixtures",
     "description": "Load fixtures into database from different formats: Yaml, XML, etc.",
     "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "THE ICONIC ENGINEERING TEAM",
