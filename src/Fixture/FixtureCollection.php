@@ -3,12 +3,14 @@
 namespace TheIconic\Fixtures\Fixture;
 
 use TheIconic\Fixtures\Exception\FixtureException;
+use IteratorAggregate;
+use Countable;
 
 /**
  * Class FixtureCollection
  * @package TheIconic\Fixtures\Fixture
  */
-class FixtureCollection implements \IteratorAggregate, \Countable
+class FixtureCollection implements IteratorAggregate, Countable
 {
     /**
      * Contains the fixtures loaded.

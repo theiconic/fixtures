@@ -2,11 +2,14 @@
 
 namespace TheIconic\Fixtures\Fixture;
 
+use IteratorAggregate;
+use Countable;
+
 /**
  * Class Fixture
  * @package TheIconic\Fixtures\Fixture
  */
-class Fixture implements \IteratorAggregate, \Countable
+class Fixture implements IteratorAggregate, Countable
 {
     /**
      * @var string
