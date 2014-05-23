@@ -44,7 +44,7 @@ class FixtureCollection implements IteratorAggregate, Countable
     public function add(Fixture $fixture)
     {
         if (isset($this->fixtures[$fixture->getName()])) {
-            throw new FixtureException('Fixture' . $fixture->getName() . ' already defined');
+            throw new FixtureException('Fixture ' . $fixture->getName() . ' already defined');
         } else {
             $this->fixtures[$fixture->getName()] = $fixture;
         }
