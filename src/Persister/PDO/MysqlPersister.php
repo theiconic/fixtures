@@ -4,6 +4,8 @@ namespace TheIconic\Fixtures\Persister\PDO;
 
 use TheIconic\Fixtures\Exception\PersisterException;
 use TheIconic\Fixtures\Fixture\Fixture;
+use PDO;
+use PDOException;
 
 /**
  * Class MysqlPersister
@@ -31,6 +33,30 @@ class MysqlPersister extends AbstractPDOPersister
     public function __construct($host, $database, $username, $password)
     {
         parent::__construct($host, $database, $username, $password, self::DRIVER_NAME_MYSQL);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @throws PersisterException
+     * @return PDO
+     */
+    protected function getConnection()
+    {
+        if ($this->conn === null) {
+            try {
+                $dsn = $this->config['driver']
+                    . ':host=' . $this->config['host']
+                    . ';dbname=' . $this->config['database'];
+
+                $this->conn = new PDO($dsn, $this->config['username'], $this->config['password']);
+                $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $e) {
+                throw new PersisterException('PDO Exception: ' . $e->getMessage());
+            }
+        }
+
+        return $this->conn;
     }
 
     /**
