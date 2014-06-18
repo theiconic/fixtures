@@ -79,6 +79,10 @@ Use Composer to install this package.
 </database>
 </mysqldump>
 ```
+As an example, you can generate MySQL XML dumps from the commmand line like so
+```bash
+mysqldump -u <USERNAME> -p<PASSWORD> --xml -t my_database my_table > ~/fixtures/my_table.xml
+```
 
 ***Yaml***, use it for simple data that does not has NULL values.
 ```yaml
