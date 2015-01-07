@@ -47,7 +47,8 @@ class MysqlPersister extends AbstractPDOPersister
             try {
                 $dsn = $this->config['driver']
                     . ':host=' . $this->config['host']
-                    . ';dbname=' . $this->config['database'];
+                    . ';dbname=' . $this->config['database']
+                    . ';charset=utf8';
 
                 $this->conn = new PDO($dsn, $this->config['username'], $this->config['password']);
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
