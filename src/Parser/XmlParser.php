@@ -19,7 +19,7 @@ class XmlParser extends AbstractParser
     protected static $parsableExtension = '.xml';
 
     /**
-     * Parses and MySQL dump XML file.
+     * Parses a MySQL dump XML file.
      *
      * @param $source
      * @return Fixture
