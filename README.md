@@ -1,6 +1,6 @@
 THE ICONIC Database Fixtures
 ========
-[![Build Status](https://travis-ci.org/theiconic/fixtures.png?branch=v1.2.7)](https://travis-ci.org/theiconic/fixtures) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/theiconic/fixtures/badges/quality-score.png?s=334ddfb53b2b286b443ff745b4458d61d9a1ac15)](https://scrutinizer-ci.com/g/theiconic/fixtures/) [![Coverage Status](https://coveralls.io/repos/theiconic/fixtures/badge.png?branch=master)](https://coveralls.io/r/theiconic/fixtures?branch=master) [![Latest Stable Version](https://poser.pugx.org/theiconic/fixtures/v/stable.png)](https://packagist.org/packages/theiconic/fixtures) [![License](https://poser.pugx.org/theiconic/fixtures/license.png)](https://packagist.org/packages/theiconic/fixtures)
+[![Build Status](https://travis-ci.org/theiconic/fixtures.png?branch=v1.3)](https://travis-ci.org/theiconic/fixtures) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/theiconic/fixtures/badges/quality-score.png?s=334ddfb53b2b286b443ff745b4458d61d9a1ac15)](https://scrutinizer-ci.com/g/theiconic/fixtures/) [![Coverage Status](https://coveralls.io/repos/theiconic/fixtures/badge.png?branch=master)](https://coveralls.io/r/theiconic/fixtures?branch=master) [![Latest Stable Version](https://poser.pugx.org/theiconic/fixtures/v/stable.png)](https://packagist.org/packages/theiconic/fixtures) [![License](https://poser.pugx.org/theiconic/fixtures/license.png)](https://packagist.org/packages/theiconic/fixtures)
 
 ## Description
 
@@ -13,6 +13,8 @@ With an extensible design, it currently support fixtures in the following format
 And it currently supports the following databases:
 
 * MySQL
+
+The fixture manager also allows you to replace placeholders in your fixtures programatically. See examples below.
 
 ## Usage
 
@@ -50,6 +52,40 @@ $fixtureManager
     ->persist();
 ```
 
+In the values for your fixtures files, you can put placeholders for the values. This allows you to change the values dynamically, such as, place the current date.
+
+To do this, when creating the Fixture Manager pass an array with the keys in the form "fx:placeholder:<my_name>". For example:
+
+```php
+use TheIconic\Fixtures\FixtureManager\FixtureManager;
+
+// Declare an array with the path to your fixtures
+$fixtures = ['./fixtures/employee.yml'];
+
+// Create a new Fixture Manager passing such array
+$fixtureManager = FixtureManager::create($fixtures, ['fx:placeholder:age' => 33]);
+
+```
+
+And the employee.xml file would be (notice the value of "age" field):
+
+```xml
+<?xml version="1.0"?>
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database name="my_database">
+	<table_data name="employee">
+		<row>
+			<field name="id">1</field>
+			<field name="name">John Smith</field>
+			<field name="age"/>fx:placeholder:age</field>
+		</row>
+	</table_data>
+</database>
+</mysqldump>
+```
+
+You can pass any value you want, just calculate it before passing it to the create static method.
+
 ## Installation
 
 Use Composer to install this package.
@@ -57,7 +93,7 @@ Use Composer to install this package.
 ```json
 {
     "require": {
-        "theiconic/fixtures": "~1.2"
+        "theiconic/fixtures": "~1.3"
     }
 }
 ```
