@@ -7,6 +7,7 @@ class FixtureManagerTest extends \PHPUnit_Framework_TestCase
     private $fixtures = [
         'customer_address_region_suburb.xml',
         'country_region.yml',
+        'currency_conversion_placeholder.xml'
     ];
 
     private $conn;
@@ -32,10 +33,10 @@ class FixtureManagerTest extends \PHPUnit_Framework_TestCase
     public function testFixtureManagerPersist()
     {
         $fixtures = array_map(function ($val) {
-            return './tests/Support/TestsFixtures/' . $val;
+            return __DIR__ . '/../../../../tests/Support/TestsFixtures/' . $val;
         }, $this->fixtures);
 
-        $fixtureManager = FixtureManager::create($fixtures);
+        $fixtureManager = FixtureManager::create($fixtures, ['fx:placeholder:jpy' => 777]);
 
         $fixtureManager
             ->setDefaultPDOPersister(
@@ -48,9 +49,25 @@ class FixtureManagerTest extends \PHPUnit_Framework_TestCase
 
         $rowsCountry = $this->getConnection()->query('SELECT count(1) FROM country_region;')->fetchColumn();
         $rowsSuburd = $this->getConnection()->query('SELECT count(1) FROM customer_address_region_suburb;')->fetchColumn();
+        $rowsCurrency = $this->getConnection()->query('SELECT count(1) FROM currency_conversion_placeholder;')->fetchColumn();
+        $rowsCurrencyData = $this->getConnection()->query('SELECT * FROM currency_conversion_placeholder;')->fetchAll();
 
         $this->assertEquals(8, $rowsCountry);
         $this->assertEquals(16644, $rowsSuburd);
+        $this->assertEquals(3, $rowsCurrency);
+
+        $i = 0;
+        foreach ($rowsCurrencyData as $data) {
+            if ($i === 0) {
+                $this->assertEquals(1.288800, $data['rate']);
+            } elseif ($i === 1) {
+                $this->assertEquals(777, $data['rate']);
+            } elseif ($i === 2) {
+                $this->assertEquals(1.955800, $data['rate']);
+            }
+
+            $i++;
+        }
     }
 
     /**

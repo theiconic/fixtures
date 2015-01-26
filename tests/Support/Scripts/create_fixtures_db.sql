@@ -25,6 +25,13 @@ CREATE TABLE IF NOT EXISTS `currency_conversion` (
   PRIMARY KEY (`id_currency_conversion`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `currency_conversion_placeholder` (
+  `id_currency_conversion` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `currency` VARCHAR(4) NOT NULL,
+  `rate` DECIMAL(9,6) NOT NULL,
+  PRIMARY KEY (`id_currency_conversion`)
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `customer_address_region_suburb` (
   `id_customer_address_region_suburb` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `fk_customer_address_region` INT(10) UNSIGNED NOT NULL,

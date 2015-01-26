@@ -7,6 +7,8 @@ use TheIconic\Fixtures\Parser\ParserInterface;
 use TheIconic\Fixtures\Parser\MasterParser;
 use TheIconic\Fixtures\Persister\PDO\PersisterFactory;
 use TheIconic\Fixtures\Persister\PersisterInterface;
+use TheIconic\Fixtures\Replacer\PlaceholderReplacer;
+use TheIconic\Fixtures\Replacer\ReplacerInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use TheIconic\Fixtures\Exception\SourceNotFoundException;
 
@@ -32,28 +34,41 @@ class FixtureManager
     private $persister;
 
     /**
+     * @var ReplacerInterface
+     */
+    private $replacer;
+
+    /**
+     * @var array
+     */
+    private $placeholderReplacements = [];
+
+    /**
      * On construction, initializes the fixture collection.
      *
-     * @param $sources
+     * @param array $sources
+     * @param array $placeholderReplacements
      */
-    private function __construct($sources)
+    private function __construct($sources, array $placeholderReplacements)
     {
+        $this->placeholderReplacements = $placeholderReplacements;
         $this->parse($sources);
     }
 
     /**
      * Creates a new Fixture Manager.
      *
-     * @param $sources
+     * @param string|array $sources
+     * @param array $placeholderReplacements
      * @return FixtureManager
      */
-    public static function create($sources)
+    public static function create($sources, array $placeholderReplacements = [])
     {
         if (is_string($sources)) {
             $sources = [$sources];
         }
 
-        return new self($sources);
+        return new self($sources, $placeholderReplacements);
     }
 
     /**
@@ -81,6 +96,33 @@ class FixtureManager
         }
 
         return $this->parser;
+    }
+
+    /**
+     * Sets the replacer (for testing purpose).
+     *
+     * @param ReplacerInterface $replacer
+     * @return $this
+     */
+    public function setReplacer(ReplacerInterface $replacer)
+    {
+        $this->replacer = $replacer;
+
+        return $this;
+    }
+
+    /**
+     * Gets the replacer, initializes to placeholder for now.
+     *
+     * @return ReplacerInterface
+     */
+    public function getReplacer()
+    {
+        if ($this->replacer === null) {
+            $this->setReplacer(new PlaceholderReplacer());
+        }
+
+        return $this->replacer;
     }
 
     /**
@@ -151,6 +193,11 @@ class FixtureManager
 
         foreach ($sources as $source) {
             $fixture = $this->getParser()->parse($source);
+
+            if (!empty($this->placeholderReplacements)) {
+                $fixture = $this->getReplacer()->replaceValues($fixture, $this->placeholderReplacements);
+            }
+
             if ($this->fixtureCollection === null) {
                 $this->fixtureCollection = FixtureCollection::create($fixture);
             } else {
