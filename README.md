@@ -64,7 +64,7 @@ Use Composer to install this package.
 
 ## Fixtures Files Examples
 
-***XML***, use it when you are dealing with fixtures that have NULL values.
+***XML***, use it when you are dealing with fixtures that have NULL values and dates.
 ```xml
 <?xml version="1.0"?>
 <mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -84,7 +84,7 @@ As an example, you can generate MySQL XML dumps from the commmand line like so
 mysqldump -u <USERNAME> -p<PASSWORD> --xml -t my_database my_table > ~/fixtures/my_table.xml
 ```
 
-***Yaml***, use it for simple data that does not has NULL values.
+***Yaml***, use it for simple data that does not has NULL values or dates.
 ```yaml
 country:
   -
