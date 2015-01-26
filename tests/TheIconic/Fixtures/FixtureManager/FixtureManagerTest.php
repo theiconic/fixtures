@@ -71,6 +71,14 @@ class FixtureManagerTest extends \PHPUnit_Framework_TestCase
         FixtureManager::create('fake.xml');
     }
 
+    /**
+     * @expectedException \TheIconic\Fixtures\Exception\SourceNotFoundException
+     */
+    public function testFixtureManagerEmptySource()
+    {
+        FixtureManager::create([]);
+    }
+
     public function testFixtureManagerClean()
     {
         $fixtures = array_map(function ($val) {

@@ -139,6 +139,10 @@ class FixtureManager
     {
         $fs = new Filesystem();
 
+        if (empty($sources)) {
+            throw new SourceNotFoundException('You must pass some fixtures files to parse!');
+        }
+
         foreach ($sources as $source) {
             if (!$fs->exists($source)) {
                 throw new SourceNotFoundException('Fixture source file not found: ' . $source);
