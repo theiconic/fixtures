@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database name="theiconic_bd">
+	<table_data name="currency_conversion_placeholder">
+	<row>
+		<field name="id_currency_conversion">8286</field>
+		<field name="currency">USD</field>
+		<field name="rate">1.288800</field>
+	</row>
+	<row>
+		<field name="id_currency_conversion">8287</field>
+		<field name="currency">JPY</field>
+		<field name="rate">fx:placeholder:jpy</field>
+	</row>
+	<row>
+		<field name="id_currency_conversion">8288</field>
+		<field name="currency">BGN</field>
+		<field name="rate">1.955800</field>
+	</row>
+	</table_data>
+</database>
+</mysqldump>

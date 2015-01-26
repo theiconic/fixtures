@@ -48,6 +48,18 @@ class Fixture implements IteratorAggregate, Countable
     }
 
     /**
+     * Replaces the fixture data.
+     *
+     * @param array $data
+     * @return Fixture
+     */
+    public function setData(array $data) {
+        $this->data = $data;
+
+        return $this;
+    }
+
+    /**
      * Returns the iterable array.
      *
      * @return \ArrayIterator
