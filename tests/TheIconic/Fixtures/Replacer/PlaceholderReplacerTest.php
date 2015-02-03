@@ -27,7 +27,14 @@ class PlaceholderReplacerTest extends \PHPUnit_Framework_TestCase
         $this->assertCount(3, $fixture);
         $this->assertEquals('currency_conversion_placeholder', $fixture->getName());
 
-        $fixture = $this->replacerInstance->replaceValues($fixture, ['fx:placeholder:jpy' => 777]);
+        $fixture = $this->replacerInstance->replaceValues(
+            $fixture,
+            [
+                'currency_conversion_placeholder' => [
+                    'fx:placeholder:jpy' => 777
+                ]
+            ]
+        );
 
         $i = 0;
         foreach ($fixture as $fixtureData) {

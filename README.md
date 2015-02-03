@@ -52,9 +52,9 @@ $fixtureManager
     ->persist();
 ```
 
-In the values for your fixtures files, you can put placeholders for the values. This allows you to change the values dynamically, such as, place the current date.
+In the values for your fixtures files you can put placeholders instead of real values, this allows you to change the values dynamically, such as, place the current date.
 
-To do this, when creating the Fixture Manager pass an array with the keys in the form "fx:placeholder:<my_name>". For example:
+To do this, when creating the Fixture Manager pass an array with the keys in the form "fx:placeholder:<my_name>" inside another array with names of the fixture as key. For example:
 
 ```php
 use TheIconic\Fixtures\FixtureManager\FixtureManager;
@@ -63,8 +63,14 @@ use TheIconic\Fixtures\FixtureManager\FixtureManager;
 $fixtures = ['./fixtures/employee.yml'];
 
 // Create a new Fixture Manager passing such array
-$fixtureManager = FixtureManager::create($fixtures, ['fx:placeholder:age' => 33]);
-
+$fixtureManager = FixtureManager::create(
+    $fixtures,
+    [
+        'employee' => [
+            'fx:placeholder:age' => 33
+        ]
+    ]
+);
 ```
 
 And the employee.xml file would be (notice the value of "age" field):

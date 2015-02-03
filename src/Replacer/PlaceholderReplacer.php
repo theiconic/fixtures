@@ -15,6 +15,13 @@ class PlaceholderReplacer implements ReplacerInterface
      */
     public function replaceValues(Fixture $fixture, array $replacementPlaceholders)
     {
+        // If no replacement will take place for this fixture, return right away
+        if (!array_key_exists($fixture->getName(), $replacementPlaceholders)) {
+            return $fixture;
+        } else {
+            $replacementPlaceholders = $replacementPlaceholders[$fixture->getName()];
+        }
+
         $replacedData = [];
 
         foreach ($fixture as $index => $fixtureData) {
