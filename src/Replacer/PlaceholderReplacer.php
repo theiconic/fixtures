@@ -15,13 +15,25 @@ class PlaceholderReplacer implements ReplacerInterface
      */
     public function replaceValues(Fixture $fixture, array $replacementPlaceholders)
     {
-        // If no replacement will take place for this fixture, return right away
-        if (!array_key_exists($fixture->getName(), $replacementPlaceholders)) {
-            return $fixture;
-        } else {
+        // Only attempt to replace values when fixture is marked for it
+        if (array_key_exists($fixture->getName(), $replacementPlaceholders)) {
             $replacementPlaceholders = $replacementPlaceholders[$fixture->getName()];
+            $replacedData = $this->replacePlaceholders($fixture, $replacementPlaceholders);
+            $fixture->setData($replacedData);
         }
 
+        return $fixture;
+    }
+
+    /**
+     * Regenerates all data inside the fixture replacing placeholders when necessary.
+     *
+     * @param Fixture $fixture
+     * @param array $replacementPlaceholders
+     * @return array
+     */
+    private function replacePlaceholders(Fixture $fixture, array $replacementPlaceholders)
+    {
         $replacedData = [];
 
         foreach ($fixture as $index => $fixtureData) {
@@ -39,6 +51,6 @@ class PlaceholderReplacer implements ReplacerInterface
             }
         }
 
-        return $fixture->setData($replacedData);
+        return $replacedData;
     }
 }

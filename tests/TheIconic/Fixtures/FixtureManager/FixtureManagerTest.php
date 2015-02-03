@@ -36,7 +36,14 @@ class FixtureManagerTest extends \PHPUnit_Framework_TestCase
             return __DIR__ . '/../../../../tests/Support/TestsFixtures/' . $val;
         }, $this->fixtures);
 
-        $fixtureManager = FixtureManager::create($fixtures, ['fx:placeholder:jpy' => 777]);
+        $fixtureManager = FixtureManager::create(
+            $fixtures,
+            [
+                'currency_conversion_placeholder' => [
+                    'fx:placeholder:jpy' => 777
+                ]
+            ]
+        );
 
         $fixtureManager
             ->setDefaultPDOPersister(
