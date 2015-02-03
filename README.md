@@ -1,6 +1,6 @@
 THE ICONIC Database Fixtures
 ========
-[![Build Status](https://travis-ci.org/theiconic/fixtures.png?branch=v1.3)](https://travis-ci.org/theiconic/fixtures) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/theiconic/fixtures/badges/quality-score.png?s=334ddfb53b2b286b443ff745b4458d61d9a1ac15)](https://scrutinizer-ci.com/g/theiconic/fixtures/) [![Coverage Status](https://coveralls.io/repos/theiconic/fixtures/badge.png?branch=master)](https://coveralls.io/r/theiconic/fixtures?branch=master) [![Latest Stable Version](https://poser.pugx.org/theiconic/fixtures/v/stable.png)](https://packagist.org/packages/theiconic/fixtures) [![License](https://poser.pugx.org/theiconic/fixtures/license.png)](https://packagist.org/packages/theiconic/fixtures)
+[![Build Status](https://travis-ci.org/theiconic/fixtures.png?branch=v1.4)](https://travis-ci.org/theiconic/fixtures) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/theiconic/fixtures/badges/quality-score.png?s=334ddfb53b2b286b443ff745b4458d61d9a1ac15)](https://scrutinizer-ci.com/g/theiconic/fixtures/) [![Coverage Status](https://coveralls.io/repos/theiconic/fixtures/badge.png?branch=master)](https://coveralls.io/r/theiconic/fixtures?branch=master) [![Latest Stable Version](https://poser.pugx.org/theiconic/fixtures/v/stable.png)](https://packagist.org/packages/theiconic/fixtures) [![License](https://poser.pugx.org/theiconic/fixtures/license.png)](https://packagist.org/packages/theiconic/fixtures)
 
 ## Description
 
