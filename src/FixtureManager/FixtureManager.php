@@ -7,6 +7,7 @@ use TheIconic\Fixtures\Parser\ParserInterface;
 use TheIconic\Fixtures\Parser\MasterParser;
 use TheIconic\Fixtures\Persister\PDO\PersisterFactory;
 use TheIconic\Fixtures\Persister\PersisterInterface;
+use TheIconic\Fixtures\Persister\Redis\RedisPersister;
 use TheIconic\Fixtures\Replacer\PlaceholderReplacer;
 use TheIconic\Fixtures\Replacer\ReplacerInterface;
 use Symfony\Component\Filesystem\Filesystem;
@@ -167,7 +168,7 @@ class FixtureManager
      */
     public function setDefaultRedisPersister($host, $port, $dbNumber, $namespace, $namespaceSeparator = ':', $serializer = null)
     {
-        $this->setPersister(RedisPersisterFactory::create($host, $port, $dbNumber, $namespace, $namespaceSeparator, $serializer));
+        $this->setPersister(new RedisPersister($host, $port, $dbNumber, $namespace, $namespaceSeparator, $serializer));
 
         return $this;
     }

@@ -32,7 +32,7 @@ abstract class AbstractRedisPersister implements PersisterInterface
      * @param string $namespaceSeparator
      * @param string $serializer
      */
-    public function __construct($host, $port, $dbNumber, $namespace, $namespaceSeparator = ':', $serializer = null, $driver = 'redis')
+    public function __construct($host, $port, $dbNumber, $namespace, $namespaceSeparator = ':', $serializer = null)
     {
         $this->config['host'] = $host;
         $this->config['port'] = $port;
@@ -40,7 +40,6 @@ abstract class AbstractRedisPersister implements PersisterInterface
         $this->config['namespace'] = $namespace;
         $this->config['namespaceSeparator'] = $namespaceSeparator;
         $this->config['serializer'] = $serializer;
-        $this->config['driver'] = $driver;
     }
 
     /**
