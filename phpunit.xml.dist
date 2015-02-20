@@ -20,8 +20,10 @@
         <env name="pdo_password" value=""/>
 
         <env name="redis_host" value="127.0.0.1"/>
-        <env name="redis_port" value="fixtures_tests"/>
-        <env name="redis_username" value="root"/>
-        <env name="redis_password" value=""/>
+        <env name="redis_port" value="6379"/>
+        <env name="redis_db_number" value="7"/>
+        <env name="redis_namespace" value="fixtures:"/>
+        <env name="redis_namespace_separator" value=":"/>
+        <env name="redis_serializer" value="php"/>
     </php>
 </phpunit>
