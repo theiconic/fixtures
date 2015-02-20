@@ -13,6 +13,7 @@ With an extensible design, it currently support fixtures in the following format
 And it currently supports the following databases:
 
 * MySQL
+* Redis
 
 The fixture manager also allows you to replace placeholders in your fixtures programatically. See examples below.
 
