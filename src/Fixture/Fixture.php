@@ -25,7 +25,7 @@ class Fixture implements IteratorAggregate, Countable
      * @param $name
      * @param array $data
      */
-    private function __construct($name, array $data)
+    private function __construct($name, $data)
     {
         $this->name = $name;
         $this->data = $data;
