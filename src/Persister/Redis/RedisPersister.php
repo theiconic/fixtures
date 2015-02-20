@@ -2,11 +2,9 @@
 
 namespace TheIconic\Fixtures\Persister\Redis;
 
-use Symfony\Component\Yaml\Yaml;
 use TheIconic\Fixtures\Exception\PersisterException;
 use TheIconic\Fixtures\Fixture\Fixture;
 use Redis;
-use RedisException;
 
 /**
  * Class RedisPersister
