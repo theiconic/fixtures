@@ -11,6 +11,7 @@ install:
 before_script:
   - mysql -e 'create database fixtures_tests;'
   - mysql -u root fixtures_tests < ./tests/Support/Scripts/create_fixtures_db.sql
+  - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 script:
  - mkdir -p build/logs
  - phpunit --coverage-clover build/logs/clover.xml
