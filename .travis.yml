@@ -3,6 +3,8 @@ sudo: false
 php:
   - "5.5"
   - "5.4"
+services:
+  - redis-server
 install:
   - composer install
   - composer dump-autoload -o

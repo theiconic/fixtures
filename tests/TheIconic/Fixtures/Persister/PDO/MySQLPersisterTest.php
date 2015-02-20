@@ -32,10 +32,10 @@ class MysqlPersisterTest extends \PHPUnit_Framework_TestCase
     {
 
         $persister = new TheIconic\Fixtures\Persister\PDO\MysqlPersister(
-            $_ENV['host'],
-            $_ENV['database'],
-            $_ENV['username'],
-            $_ENV['password']
+            $_ENV['pdo_host'],
+            $_ENV['pdo_database'],
+            $_ENV['pdo_username'],
+            $_ENV['pdo_password']
         );
 
         $this->assertTrue($persister->persist($this->testFixture));
@@ -49,10 +49,10 @@ class MysqlPersisterTest extends \PHPUnit_Framework_TestCase
     {
 
         $persister = new TheIconic\Fixtures\Persister\PDO\MysqlPersister(
-            $_ENV['host'],
-            $_ENV['database'],
-            $_ENV['username'],
-            $_ENV['password']
+            $_ENV['pdo_host'],
+            $_ENV['pdo_database'],
+            $_ENV['pdo_username'],
+            $_ENV['pdo_password']
         );
 
         $persister->persist(Fixture::create($this->testParsedBadData));
@@ -61,10 +61,10 @@ class MysqlPersisterTest extends \PHPUnit_Framework_TestCase
     public function testCleanStorage()
     {
         $persister = new TheIconic\Fixtures\Persister\PDO\MysqlPersister(
-            $_ENV['host'],
-            $_ENV['database'],
-            $_ENV['username'],
-            $_ENV['password']
+            $_ENV['pdo_host'],
+            $_ENV['pdo_database'],
+            $_ENV['pdo_username'],
+            $_ENV['pdo_password']
         );
 
         $persister->persist($this->testFixture);
@@ -78,9 +78,9 @@ class MysqlPersisterTest extends \PHPUnit_Framework_TestCase
     public function testInvalidConnection()
     {
         $persister = new TheIconic\Fixtures\Persister\PDO\MysqlPersister(
-            $_ENV['host'],
-            $_ENV['database'],
-            $_ENV['username'],
+            $_ENV['pdo_host'],
+            $_ENV['pdo_database'],
+            $_ENV['pdo_username'],
             'fake'
         );
 
