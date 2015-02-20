@@ -139,6 +139,7 @@ country:
 ## Contributors
 
 * Jorge A. Borges - Main Developer ([http://jorgeborges.me](http://jorgeborges.me))
+* Aaron Weatherall - ([http://www.aaronweatherall.com](http://www.aaronweatherall.com))
 
 ## License
 
