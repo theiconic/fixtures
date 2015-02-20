@@ -36,6 +36,36 @@ class RedisPersisterTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($persister->close());
     }
 
+    public function testPersistNullSerializer()
+    {
+        $persister = new TheIconic\Fixtures\Persister\Redis\RedisPersister(
+            $_ENV['redis_host'],
+            $_ENV['redis_port'],
+            $_ENV['redis_db_number'],
+            $_ENV['redis_namespace'],
+            $_ENV['redis_namespace_separator'],
+            null
+        );
+
+        $this->assertTrue($persister->persist($this->testFixture));
+        $this->assertTrue($persister->close());
+    }
+
+    public function testPersistIgbinariesSerializer()
+    {
+        $persister = new TheIconic\Fixtures\Persister\Redis\RedisPersister(
+            $_ENV['redis_host'],
+            $_ENV['redis_port'],
+            $_ENV['redis_db_number'],
+            $_ENV['redis_namespace'],
+            $_ENV['redis_namespace_separator'],
+            'igbinary'
+        );
+
+        $this->assertTrue($persister->persist($this->testFixture));
+        $this->assertTrue($persister->close());
+    }
+
     public function testCleanStorage()
     {
         $persister = new TheIconic\Fixtures\Persister\Redis\RedisPersister(

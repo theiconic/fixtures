@@ -72,42 +72,35 @@ class RedisPersister extends AbstractRedisPersister
     public function persist(Fixture $fixture)
     {
         $fixtureName = $fixture->getName();
-
-        try {
-            $success = $this->getConnection()->set($fixtureName, $fixture->getIterator()->getArrayCopy());
-        } catch (\RedisException $e) {
-            throw new PersisterException("ERROR with fixture '$fixtureName': " . $e->getMessage());
-        }
-
-        return $success;
+        return $this->getConnection()->set($fixtureName, $fixture->getIterator()->getArrayCopy());
     }
 
     /**
      * {@inheritDoc}
      *
+     * @note flushDB always returns true
      * @return bool
      */
     public function cleanStorage()
     {
-        try {
-            $success = $this->getConnection()->flushDB();
-        } catch (\RedisException $e) {
-            throw new PersisterException("ERROR with flushDB: " . $e->getMessage());
-        }
-
-        return $success;
+        return $this->getConnection()->flushDB();
     }
 
+    /**
+     * Get Serializer Type
+     * @param null $serializer
+     * @return int
+     */
     protected function getSerializer($serializer = null)
     {
         switch ($serializer)
         {
             case 'php':
-                return Redis::SERIALIZER_PHP;
+                return (defined('Redis::SERIALIZER_PHP')) ? Redis::SERIALIZER_PHP : 1;
             case 'igbinary':
-                return Redis::SERIALIZER_IGBINARY;
+                return (defined('Redis::SERIALIZER_IGBINARY')) ? Redis::SERIALIZER_IGBINARY : 2;
             default:
-                return Redis::SERIALIZER_NONE;
+                return (defined('Redis::SERIALIZER_NONE')) ? Redis::SERIALIZER_NONE : 0;
         }
     }
 }
