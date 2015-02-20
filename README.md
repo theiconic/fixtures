@@ -99,7 +99,7 @@ Use Composer to install this package.
 ```json
 {
     "require": {
-        "theiconic/fixtures": "~1.3"
+        "theiconic/fixtures": "~1.4"
     }
 }
 ```
