@@ -35,7 +35,7 @@ class RedisPersister extends AbstractRedisPersister
      */
     public function __construct($host, $port, $dbNumber, $namespace, $namespaceSeparator = ':', $serializer = null)
     {
-        parent::__construct($host, $port, $dbNumber, $namespace, $namespaceSeparator, $serializer, self::DRIVER_NAME_REDIS);
+        parent::__construct($host, $port, $dbNumber, $namespace, $namespaceSeparator, $serializer);
     }
 
     /**
