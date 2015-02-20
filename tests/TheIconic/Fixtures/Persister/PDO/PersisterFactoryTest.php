@@ -7,10 +7,10 @@ class PersisterFactoryTest extends \PHPUnit_Framework_TestCase
     public function testCreate()
     {
         $persister = PersisterFactory::create(
-            $_ENV['host'],
-            $_ENV['database'],
-            $_ENV['username'],
-            $_ENV['password'],
+            $_ENV['pdo_host'],
+            $_ENV['pdo_database'],
+            $_ENV['pdo_username'],
+            $_ENV['pdo_password'],
             'mysql'
         );
 
@@ -23,10 +23,10 @@ class PersisterFactoryTest extends \PHPUnit_Framework_TestCase
     public function testInvalidCreate()
     {
         PersisterFactory::create(
-            $_ENV['host'],
-            $_ENV['database'],
-            $_ENV['username'],
-            $_ENV['password'],
+            $_ENV['pdo_host'],
+            $_ENV['pdo_database'],
+            $_ENV['pdo_username'],
+            $_ENV['pdo_password'],
             'fakedb'
         );
     }

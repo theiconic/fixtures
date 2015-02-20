@@ -7,10 +7,12 @@ use TheIconic\Fixtures\Parser\ParserInterface;
 use TheIconic\Fixtures\Parser\MasterParser;
 use TheIconic\Fixtures\Persister\PDO\PersisterFactory;
 use TheIconic\Fixtures\Persister\PersisterInterface;
+use TheIconic\Fixtures\Persister\Redis\RedisPersister;
 use TheIconic\Fixtures\Replacer\PlaceholderReplacer;
 use TheIconic\Fixtures\Replacer\ReplacerInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use TheIconic\Fixtures\Exception\SourceNotFoundException;
+use TheIconic\Fixtures\Persister\Redis\RedisPersisterFactory;
 
 /**
  * Class FixtureManager
@@ -150,6 +152,23 @@ class FixtureManager
     public function setDefaultPDOPersister($host, $database, $username, $password)
     {
         $this->setPersister(PersisterFactory::create($host, $database, $username, $password));
+
+        return $this;
+    }
+
+    /**
+     * Initializes and sets the default Redis persister.
+     * @param $host
+     * @param $port
+     * @param $dbNumber
+     * @param $namespace
+     * @param string $namespaceSeparator
+     * @param null $serializer
+     * @return $this
+     */
+    public function setDefaultRedisPersister($host, $port, $dbNumber, $namespace, $namespaceSeparator = ':', $serializer = null)
+    {
+        $this->setPersister(new RedisPersister($host, $port, $dbNumber, $namespace, $namespaceSeparator, $serializer));
 
         return $this;
     }

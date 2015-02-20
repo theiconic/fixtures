@@ -14,9 +14,16 @@
         </blacklist>
     </filter>
     <php>
-        <env name="host" value="127.0.0.1"/>
-        <env name="database" value="fixtures_tests"/>
-        <env name="username" value="root"/>
-        <env name="password" value=""/>
+        <env name="pdo_host" value="127.0.0.1"/>
+        <env name="pdo_database" value="fixtures_tests"/>
+        <env name="pdo_username" value="root"/>
+        <env name="pdo_password" value=""/>
+
+        <env name="redis_host" value="127.0.0.1"/>
+        <env name="redis_port" value="6379"/>
+        <env name="redis_db_number" value="7"/>
+        <env name="redis_namespace" value="fixtures:"/>
+        <env name="redis_namespace_separator" value=":"/>
+        <env name="redis_serializer" value="php"/>
     </php>
 </phpunit>

@@ -2,7 +2,7 @@
 
 namespace TheIconic\Fixtures\FixtureManager;
 
-class FixtureManagerTest extends \PHPUnit_Framework_TestCase
+class FixtureManagerPdoTest extends \PHPUnit_Framework_TestCase
 {
     private $fixtures = [
         'customer_address_region_suburb.xml',
@@ -15,10 +15,10 @@ class FixtureManagerTest extends \PHPUnit_Framework_TestCase
     private function getConnection() {
         if ($this->conn === null) {
             $dsn = 'mysql'
-                . ':host=' . $_ENV['host']
-                . ';dbname=' . $_ENV['database'];
+                . ':host=' . $_ENV['pdo_host']
+                . ';dbname=' . $_ENV['pdo_database'];
 
-            $this->conn = new \PDO($dsn, $_ENV['username'], $_ENV['password']);
+            $this->conn = new \PDO($dsn, $_ENV['pdo_username'], $_ENV['pdo_password']);
             $this->conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         }
 
@@ -47,10 +47,10 @@ class FixtureManagerTest extends \PHPUnit_Framework_TestCase
 
         $fixtureManager
             ->setDefaultPDOPersister(
-                $_ENV['host'],
-                $_ENV['database'],
-                $_ENV['username'],
-                $_ENV['password']
+                $_ENV['pdo_host'],
+                $_ENV['pdo_database'],
+                $_ENV['pdo_username'],
+                $_ENV['pdo_password']
             )
             ->persist();
 
@@ -113,10 +113,10 @@ class FixtureManagerTest extends \PHPUnit_Framework_TestCase
 
         $fixtureManager
             ->setDefaultPDOPersister(
-                $_ENV['host'],
-                $_ENV['database'],
-                $_ENV['username'],
-                $_ENV['password']
+                $_ENV['pdo_host'],
+                $_ENV['pdo_database'],
+                $_ENV['pdo_username'],
+                $_ENV['pdo_password']
             )
             ->persist()
             ->cleanStorage();
