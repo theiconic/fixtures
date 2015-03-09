@@ -24,14 +24,15 @@ class PlaceholderReplacerTest extends \PHPUnit_Framework_TestCase
 
         $fixture = (new XmlParser())->parse($fixtureFile);
 
-        $this->assertCount(3, $fixture);
+        $this->assertCount(4, $fixture);
         $this->assertEquals('currency_conversion_placeholder', $fixture->getName());
 
         $fixture = $this->replacerInstance->replaceValues(
             $fixture,
             [
                 'currency_conversion_placeholder' => [
-                    'fx:placeholder:jpy' => 777
+                    'fx:placeholder:jpy' => 777,
+                    'fx:placeholder:gbp' => 888,
                 ]
             ]
         );
@@ -44,6 +45,8 @@ class PlaceholderReplacerTest extends \PHPUnit_Framework_TestCase
                 $this->assertEquals(777, $fixtureData['rate']);
             } elseif ($i === 2) {
                 $this->assertEquals(1.955800, $fixtureData['rate']);
+            } elseif ($i === 3) {
+                $this->assertEquals(888, $fixtureData['rate']);
             }
 
             $i++;
