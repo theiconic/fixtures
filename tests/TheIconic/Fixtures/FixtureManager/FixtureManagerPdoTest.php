@@ -40,7 +40,8 @@ class FixtureManagerPdoTest extends \PHPUnit_Framework_TestCase
             $fixtures,
             [
                 'currency_conversion_placeholder' => [
-                    'fx:placeholder:jpy' => 777
+                    'fx:placeholder:jpy' => 777,
+                    'fx:placeholder:gbp' => 888
                 ]
             ]
         );
@@ -61,7 +62,7 @@ class FixtureManagerPdoTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(8, $rowsCountry);
         $this->assertEquals(16644, $rowsSuburd);
-        $this->assertEquals(3, $rowsCurrency);
+        $this->assertEquals(4, $rowsCurrency);
 
         $i = 0;
         foreach ($rowsCurrencyData as $data) {
@@ -71,6 +72,8 @@ class FixtureManagerPdoTest extends \PHPUnit_Framework_TestCase
                 $this->assertEquals(777, $data['rate']);
             } elseif ($i === 2) {
                 $this->assertEquals(1.955800, $data['rate']);
+            } elseif ($i === 3) {
+                $this->assertEquals(888, $data['rate']);
             }
 
             $i++;

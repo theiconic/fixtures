@@ -38,19 +38,14 @@ class PlaceholderReplacer implements ReplacerInterface
 
         foreach ($fixture as $index => $fixtureData) {
             foreach ($fixtureData as $column => $value) {
-                foreach ($replacementPlaceholders as $placeholder => $newValue) {
-                    if (
-                        strpos($placeholder, self::REPLACEMENT_PLACEHOLDER_PREFIX) !== false
-                        && $placeholder === $value
-                    ) {
-                        $replacedData[$index][$column] = $newValue;
-                    } else {
-                        $replacedData[$index][$column] = $value;
-                    }
+                if (in_array($value, array_keys($replacementPlaceholders), true) &&
+                    strpos(key($replacementPlaceholders), self::REPLACEMENT_PLACEHOLDER_PREFIX) !== false) {
+                    $replacedData[$index][$column] = $replacementPlaceholders[$value];
+                } else {
+                    $replacedData[$index][$column] = $value;
                 }
             }
         }
-
         return $replacedData;
     }
 }

@@ -12,11 +12,16 @@
 		<field name="currency">JPY</field>
 		<field name="rate">fx:placeholder:jpy</field>
 	</row>
-	<row>
-		<field name="id_currency_conversion">8288</field>
-		<field name="currency">BGN</field>
-		<field name="rate">1.955800</field>
-	</row>
+    <row>
+        <field name="id_currency_conversion">8288</field>
+        <field name="currency">BGN</field>
+        <field name="rate">1.955800</field>
+    </row>
+    <row>
+        <field name="id_currency_conversion">8289</field>
+        <field name="currency">GBP</field>
+        <field name="rate">fx:placeholder:gbp</field>
+    </row>
 	</table_data>
 </database>
 </mysqldump>
