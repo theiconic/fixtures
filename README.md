@@ -1,6 +1,6 @@
 THE ICONIC Database Fixtures
 ========
-[![Build Status](https://travis-ci.org/theiconic/fixtures.png?branch=v1.5.0)](https://travis-ci.org/theiconic/fixtures) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/theiconic/fixtures/badges/quality-score.png?s=334ddfb53b2b286b443ff745b4458d61d9a1ac15)](https://scrutinizer-ci.com/g/theiconic/fixtures/) [![Coverage Status](https://coveralls.io/repos/theiconic/fixtures/badge.png?branch=master)](https://coveralls.io/r/theiconic/fixtures?branch=master) [![Latest Stable Version](https://poser.pugx.org/theiconic/fixtures/v/stable.png)](https://packagist.org/packages/theiconic/fixtures) [![License](https://poser.pugx.org/theiconic/fixtures/license.png)](https://packagist.org/packages/theiconic/fixtures)
+[![Build Status](https://travis-ci.org/theiconic/fixtures.png?branch=v1.5.1)](https://travis-ci.org/theiconic/fixtures) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/theiconic/fixtures/badges/quality-score.png?s=334ddfb53b2b286b443ff745b4458d61d9a1ac15)](https://scrutinizer-ci.com/g/theiconic/fixtures/) [![Coverage Status](https://coveralls.io/repos/theiconic/fixtures/badge.png?branch=master)](https://coveralls.io/r/theiconic/fixtures?branch=master) [![Latest Stable Version](https://poser.pugx.org/theiconic/fixtures/v/stable.png)](https://packagist.org/packages/theiconic/fixtures) [![License](https://poser.pugx.org/theiconic/fixtures/license.png)](https://packagist.org/packages/theiconic/fixtures) [![Dependency Status](https://www.versioneye.com/user/projects/54fd3136fcd47a6e740000c7/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54fd3136fcd47a6e740000c7)
 
 ## Description
 
@@ -141,6 +141,7 @@ country:
 
 * Jorge A. Borges - Main Developer ([http://jorgeborges.me](http://jorgeborges.me))
 * Aaron Weatherall - ([http://www.aaronweatherall.com](http://www.aaronweatherall.com))
+* Ollie Brennan - ([http://www.epicarena.com](http://www.epicarena.com/))
 
 ## License
 
