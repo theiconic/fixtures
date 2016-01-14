@@ -10,7 +10,7 @@ class MasterParserTest extends \PHPUnit_Framework_TestCase
 
     const TESTS_FIXTURES_DIRECTORY = './tests/Support/TestsFixtures/';
 
-    const CURRENT_NUMBER_OF_PARSERS = 2;
+    const CURRENT_NUMBER_OF_PARSERS = 3;
 
     /**
      * @var MasterParser
@@ -34,6 +34,15 @@ class MasterParserTest extends \PHPUnit_Framework_TestCase
     public function testXmlParseViaMaster()
     {
         $fixtureFile = self::TESTS_FIXTURES_DIRECTORY . 'customer_address_region_suburb.xml';
+
+        $fixtureAddress = $this->parserInstance->parse($fixtureFile);
+
+        $this->assertInstanceOf('TheIconic\Fixtures\Fixture\Fixture', $fixtureAddress);
+    }
+
+    public function testXmlEmptiableParseViaMaster()
+    {
+        $fixtureFile = self::TESTS_FIXTURES_DIRECTORY . 'currency_conversion.empty.xml';
 
         $fixtureAddress = $this->parserInstance->parse($fixtureFile);
 
