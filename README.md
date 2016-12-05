@@ -8,6 +8,7 @@ Fixture manager that allows you to easily load your test data fixtures from diff
 With an extensible design, it currently support fixtures in the following formats:
 
 * Yaml
+* JSON
 * MySQL XML Dump
 
 And it currently supports the following databases:
