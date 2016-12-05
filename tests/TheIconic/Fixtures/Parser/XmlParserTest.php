@@ -2,7 +2,9 @@
 
 namespace TheIconic\Fixtures\Parser;
 
-class XmlParserTest extends \PHPUnit_Framework_TestCase
+use PHPUnit_Framework_TestCase;
+
+class XmlParserTest extends PHPUnit_Framework_TestCase
 {
     const TESTS_FIXTURES_DIRECTORY = './tests/Support/TestsFixtures/';
 
@@ -11,12 +13,18 @@ class XmlParserTest extends \PHPUnit_Framework_TestCase
      */
     private $parserInstance;
 
+    /**
+     *
+     */
     public function setUp()
     {
         $this->parserInstance = new XmlParser();
     }
 
-    public function testXmlParser()
+    /**
+     *
+     */
+    public function testParse()
     {
         $fixtureFile = self::TESTS_FIXTURES_DIRECTORY . 'customer_address_region_suburb.xml';
 
@@ -30,7 +38,7 @@ class XmlParserTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException \TheIconic\Fixtures\Exception\InvalidParserException
      */
-    public function testXmlParserException()
+    public function testParseException()
     {
         $fixtureFile = self::TESTS_FIXTURES_DIRECTORY . 'currency_conversion_damage.xml';
 

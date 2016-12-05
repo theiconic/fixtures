@@ -4,7 +4,7 @@ namespace TheIconic\Fixtures\Parser;
 
 use PHPUnit_Framework_TestCase;
 
-class YamlParserTest extends PHPUnit_Framework_TestCase
+class JsonParserTest extends PHPUnit_Framework_TestCase
 {
     const TESTS_FIXTURES_DIRECTORY = './tests/Support/TestsFixtures/';
 
@@ -18,7 +18,7 @@ class YamlParserTest extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->parserInstance = new YamlParser();
+        $this->parserInstance = new JsonParser();
     }
 
     /**
@@ -26,7 +26,7 @@ class YamlParserTest extends PHPUnit_Framework_TestCase
      */
     public function testParse()
     {
-        $fixtureFile = self::TESTS_FIXTURES_DIRECTORY . 'country.yml';
+        $fixtureFile = self::TESTS_FIXTURES_DIRECTORY . 'country.json';
 
         $fixture = $this->parserInstance->parse($fixtureFile);
 

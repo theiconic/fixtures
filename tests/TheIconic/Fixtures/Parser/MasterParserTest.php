@@ -10,7 +10,7 @@ class MasterParserTest extends \PHPUnit_Framework_TestCase
 
     const TESTS_FIXTURES_DIRECTORY = './tests/Support/TestsFixtures/';
 
-    const CURRENT_NUMBER_OF_PARSERS = 2;
+    const CURRENT_NUMBER_OF_PARSERS = 3;
 
     /**
      * @var MasterParser
