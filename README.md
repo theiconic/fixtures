@@ -138,6 +138,20 @@ country:
     name: Andorra
 ```
 
+***JSON***
+```json
+{
+  "country": [
+    {
+      "id_country": 2,
+      "iso2_code": "AD",
+      "iso3_code": "AND",
+      "name": "Andorra"
+    }
+  ]
+}
+```
+
 ## Contributors
 
 * Jorge A. Borges - Main Developer ([http://jorgeborges.me](http://jorgeborges.me))
