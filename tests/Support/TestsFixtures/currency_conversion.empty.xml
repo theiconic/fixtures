@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <database name="theiconic_bd">
+        <table_data name="currency_conversion">
+            <row>
+                <field name="id_currency_conversion">8286</field>
+                <field name="currency">USD</field>
+                <field name="rate">1.288800</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8287</field>
+                <field name="currency">JPY</field>
+                <field name="rate">131.070000</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8288</field>
+                <field name="currency">BGN</field>
+                <field name="rate">1.955800</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8289</field>
+                <field name="currency">CZK</field>
+                <field name="rate">26.094000</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8290</field>
+                <field name="currency">DKK</field>
+                <field name="rate">7.454100</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8291</field>
+                <field name="currency">GBP</field>
+                <field name="rate">0.855150</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8292</field>
+                <field name="currency">HUF</field>
+                <field name="rate">292.180000</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8293</field>
+                <field name="currency">LTL</field>
+                <field name="rate">3.452800</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8294</field>
+                <field name="currency">LVL</field>
+                <field name="rate">0.700500</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8295</field>
+                <field name="currency">PLN</field>
+                <field name="rate">4.209200</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8296</field>
+                <field name="currency">RON</field>
+                <field name="rate">4.365500</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8297</field>
+                <field name="currency">SEK</field>
+                <field name="rate">8.594300</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8298</field>
+                <field name="currency">CHF</field>
+                <field name="rate">1.248600</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8299</field>
+                <field name="currency">NOK</field>
+                <field name="rate">7.534000</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8300</field>
+                <field name="currency">HRK</field>
+                <field name="rate">7.576500</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8301</field>
+                <field name="currency">RUB</field>
+                <field name="rate">40.489000</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8302</field>
+                <field name="currency">TRY</field>
+                <field name="rate">2.387200</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8303</field>
+                <field name="currency">AUD</field>
+                <field name="rate">1.330200</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8304</field>
+                <field name="currency">BRL</field>
+                <field name="rate">2.646300</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8305</field>
+                <field name="currency">CAD</field>
+                <field name="rate">1.333900</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8306</field>
+                <field name="currency">CNY</field>
+                <field name="rate">7.905500</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8307</field>
+                <field name="currency">HKD</field>
+                <field name="rate">10.004400</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8308</field>
+                <field name="currency">IDR</field>
+                <field name="rate">999.999999</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8309</field>
+                <field name="currency">ILS</field>
+                <field name="rate">4.769300</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8310</field>
+                <field name="currency">INR</field>
+                <field name="rate">71.805000</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8311</field>
+                <field name="currency">KRW</field>
+                <field name="rate">999.999999</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8312</field>
+                <field name="currency">MXN</field>
+                <field name="rate">16.108100</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8313</field>
+                <field name="currency">MYR</field>
+                <field name="rate">3.906000</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8314</field>
+                <field name="currency">NZD</field>
+                <field name="rate">1.593200</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8315</field>
+                <field name="currency">PHP</field>
+                <field name="rate">53.778000</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8316</field>
+                <field name="currency">SGD</field>
+                <field name="rate">1.630100</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8317</field>
+                <field name="currency">THB</field>
+                <field name="rate">38.561000</field>
+            </row>
+            <row>
+                <field name="id_currency_conversion">8318</field>
+                <field name="currency">ZAR</field>
+                <field name="rate">12.366100</field>
+            </row>
+        </table_data>
+    </database>
+</mysqldump>

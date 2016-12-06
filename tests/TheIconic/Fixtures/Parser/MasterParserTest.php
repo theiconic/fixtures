@@ -40,6 +40,15 @@ class MasterParserTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('TheIconic\Fixtures\Fixture\Fixture', $fixtureAddress);
     }
 
+    public function testXmlEmptiableParseViaMaster()
+    {
+        $fixtureFile = self::TESTS_FIXTURES_DIRECTORY . 'currency_conversion.empty.xml';
+
+        $fixtureAddress = $this->parserInstance->parse($fixtureFile);
+
+        $this->assertInstanceOf('TheIconic\Fixtures\Fixture\Fixture', $fixtureAddress);
+    }
+
     public function testGetAvailableParsers()
     {
         $availableParsers = $this->parserInstance->getAvailableParsers();
