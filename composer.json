@@ -22,7 +22,7 @@
     "autoload": {
         "psr-4": {
             "TheIconic\\Fixtures\\": "src/",
-            "TheIconic\\Test\\":"tests/TheIconic/"
+            "TheIconic\\Fixtures\\Test\\":"tests/TheIconic/Fixtures/"
         }
     }
 }

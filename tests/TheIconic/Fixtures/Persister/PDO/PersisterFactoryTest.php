@@ -1,6 +1,6 @@
 <?php
 
-namespace TheIconic\Test\Fixtures\Persister\PDO;
+namespace TheIconic\Fixtures\Test\Persister\PDO;
 
 use PHPUnit\Framework\TestCase;
 use TheIconic\Fixtures\Persister\PDO\PersisterFactory;

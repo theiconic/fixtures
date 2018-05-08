@@ -1,6 +1,6 @@
 <?php
 
-namespace TheIconic\Test\Fixtures\Replacer;
+namespace TheIconic\Fixtures\Test\Replacer;
 
 use PHPUnit\Framework\TestCase;
 use TheIconic\Fixtures\Parser\XmlParser;

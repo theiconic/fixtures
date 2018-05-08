@@ -1,6 +1,6 @@
 <?php
 
-namespace TheIconic\Test\Fixtures\Fixture;
+namespace TheIconic\Fixtures\Test\Fixture;
 
 use PHPUnit\Framework\TestCase;
 use TheIconic\Fixtures\Fixture\Fixture;

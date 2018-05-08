@@ -1,6 +1,6 @@
 <?php
 
-namespace TheIconic\Test\Fixtures\Persister\Redis;
+namespace TheIconic\Fixtures\Test\Persister\Redis;
 
 use PHPUnit\Framework\TestCase;
 use TheIconic\Fixtures\Fixture\Fixture;

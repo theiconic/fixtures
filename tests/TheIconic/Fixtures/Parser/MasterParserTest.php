@@ -1,6 +1,6 @@
 <?php
 
-namespace TheIconic\Test\Fixtures\Parser;
+namespace TheIconic\Fixtures\Test\Parser;
 
 use PHPUnit\Framework\TestCase;
 use TheIconic\Fixtures\Parser\MasterParser;
