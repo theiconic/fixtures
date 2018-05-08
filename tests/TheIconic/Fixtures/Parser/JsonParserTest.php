@@ -1,15 +1,16 @@
 <?php
 
-namespace TheIconic\Fixtures\Parser;
+namespace TheIconic\Test\Fixtures\Parser;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
+use TheIconic\Fixtures\Parser\JsonParser;
 
-class JsonParserTest extends PHPUnit_Framework_TestCase
+class JsonParserTest extends TestCase
 {
     const TESTS_FIXTURES_DIRECTORY = './tests/Support/TestsFixtures/';
 
     /**
-     * @var YamlParser
+     * @var JsonParser
      */
     private $parserInstance;
 

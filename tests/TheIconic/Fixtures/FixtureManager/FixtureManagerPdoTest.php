@@ -1,8 +1,11 @@
 <?php
 
-namespace TheIconic\Fixtures\FixtureManager;
+namespace TheIconic\Test\Fixtures\FixtureManager;
 
-class FixtureManagerPdoTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+use TheIconic\Fixtures\FixtureManager\FixtureManager;
+
+class FixtureManagerPdoTest extends TestCase
 {
     private $fixtures = [
         'customer_address_region_suburb.xml',

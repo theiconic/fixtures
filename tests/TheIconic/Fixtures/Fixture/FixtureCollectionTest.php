@@ -1,8 +1,12 @@
 <?php
 
-namespace TheIconic\Fixtures\Fixture;
+namespace TheIconic\Test\Fixtures\Fixture;
 
-class FixtureCollectionTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+use TheIconic\Fixtures\Fixture\Fixture;
+use TheIconic\Fixtures\Fixture\FixtureCollection;
+
+class FixtureCollectionTest extends TestCase
 {
 
     private $testParsedDataCountry = [

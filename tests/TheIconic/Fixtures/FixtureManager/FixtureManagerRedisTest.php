@@ -1,8 +1,12 @@
 <?php
-namespace TheIconic\Fixtures\FixtureManager;
-use Redis;
 
-class FixtureManagerRedisTest extends \PHPUnit_Framework_TestCase
+namespace TheIconic\Test\Fixtures\FixtureManager;
+
+use PHPUnit\Framework\TestCase;
+use Redis;
+use TheIconic\Fixtures\FixtureManager\FixtureManager;
+
+class FixtureManagerRedisTest extends TestCase
 {
     private $fixtures = [
         'customer_address_region_suburb.xml',
