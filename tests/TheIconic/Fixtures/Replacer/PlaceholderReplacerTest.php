@@ -1,10 +1,12 @@
 <?php
 
-namespace TheIconic\Fixtures\Replacer;
+namespace TheIconic\Fixtures\Test\Replacer;
 
+use PHPUnit\Framework\TestCase;
 use TheIconic\Fixtures\Parser\XmlParser;
+use TheIconic\Fixtures\Replacer\PlaceholderReplacer;
 
-class PlaceholderReplacerTest extends \PHPUnit_Framework_TestCase
+class PlaceholderReplacerTest extends TestCase
 {
     const TESTS_FIXTURES_DIRECTORY = '/../../../../tests/Support/TestsFixtures/';
 

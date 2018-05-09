@@ -1,8 +1,11 @@
 <?php
 
-namespace TheIconic\Fixtures\Parser;
+namespace TheIconic\Fixtures\Test\Parser;
 
-class MasterParserTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+use TheIconic\Fixtures\Parser\MasterParser;
+
+class MasterParserTest extends TestCase
 {
     const MASTER_PARSER_FULLY_QUALIFIED_NAME = 'TheIconic\Fixtures\Parser\MasterParser';
 

@@ -1,8 +1,11 @@
 <?php
 
-namespace TheIconic\Fixtures\Persister\PDO;
+namespace TheIconic\Fixtures\Test\Persister\PDO;
 
-class PersisterFactoryTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+use TheIconic\Fixtures\Persister\PDO\PersisterFactory;
+
+class PersisterFactoryTest extends TestCase
 {
     public function testCreate()
     {

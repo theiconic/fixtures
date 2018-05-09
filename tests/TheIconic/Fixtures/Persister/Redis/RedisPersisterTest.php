@@ -1,8 +1,12 @@
 <?php
 
-use TheIconic\Fixtures\Fixture\Fixture;
+namespace TheIconic\Fixtures\Test\Persister\Redis;
 
-class RedisPersisterTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+use TheIconic\Fixtures\Fixture\Fixture;
+use TheIconic\Fixtures\Persister\Redis\RedisPersister;
+
+class RedisPersisterTest extends TestCase
 {
     private $testParsedData = [
         'country' => [
@@ -23,7 +27,7 @@ class RedisPersisterTest extends \PHPUnit_Framework_TestCase
 
     public function testPersist()
     {
-        $persister = new TheIconic\Fixtures\Persister\Redis\RedisPersister(
+        $persister = new RedisPersister(
             $_ENV['redis_host'],
             $_ENV['redis_port'],
             $_ENV['redis_db_number'],
@@ -38,7 +42,7 @@ class RedisPersisterTest extends \PHPUnit_Framework_TestCase
 
     public function testPersistNullSerializer()
     {
-        $persister = new TheIconic\Fixtures\Persister\Redis\RedisPersister(
+        $persister = new RedisPersister(
             $_ENV['redis_host'],
             $_ENV['redis_port'],
             $_ENV['redis_db_number'],
@@ -53,7 +57,7 @@ class RedisPersisterTest extends \PHPUnit_Framework_TestCase
 
     public function testPersistIgbinariesSerializer()
     {
-        $persister = new TheIconic\Fixtures\Persister\Redis\RedisPersister(
+        $persister = new RedisPersister(
             $_ENV['redis_host'],
             $_ENV['redis_port'],
             $_ENV['redis_db_number'],
@@ -68,7 +72,7 @@ class RedisPersisterTest extends \PHPUnit_Framework_TestCase
 
     public function testCleanStorage()
     {
-        $persister = new TheIconic\Fixtures\Persister\Redis\RedisPersister(
+        $persister = new RedisPersister(
             $_ENV['redis_host'],
             $_ENV['redis_port'],
             $_ENV['redis_db_number'],
@@ -87,7 +91,7 @@ class RedisPersisterTest extends \PHPUnit_Framework_TestCase
      */
     public function testInvalidConnection()
     {
-        $persister = new TheIconic\Fixtures\Persister\Redis\RedisPersister(
+        $persister = new RedisPersister(
             'fake',
             $_ENV['redis_port'],
             $_ENV['redis_db_number'],

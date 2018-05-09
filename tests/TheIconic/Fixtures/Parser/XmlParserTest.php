@@ -1,10 +1,11 @@
 <?php
 
-namespace TheIconic\Fixtures\Parser;
+namespace TheIconic\Fixtures\Test\Parser;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
+use TheIconic\Fixtures\Parser\XmlParser;
 
-class XmlParserTest extends PHPUnit_Framework_TestCase
+class XmlParserTest extends TestCase
 {
     const TESTS_FIXTURES_DIRECTORY = './tests/Support/TestsFixtures/';
 
