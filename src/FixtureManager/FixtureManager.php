@@ -3,6 +3,8 @@
 namespace TheIconic\Fixtures\FixtureManager;
 
 use TheIconic\Fixtures\Fixture\FixtureCollection;
+use TheIconic\Fixtures\Notifier\NotifierInterface;
+use TheIconic\Fixtures\Notifier\NullNotifier;
 use TheIconic\Fixtures\Parser\ParserInterface;
 use TheIconic\Fixtures\Parser\MasterParser;
 use TheIconic\Fixtures\Persister\PDO\PersisterFactory;
@@ -41,6 +43,11 @@ class FixtureManager
     private $replacer;
 
     /**
+     * @var NotifierInterface
+     */
+    private $notifier;
+
+    /**
      * @var array
      */
     private $placeholderReplacements = [];
@@ -71,6 +78,22 @@ class FixtureManager
         }
 
         return new self($sources, $placeholderReplacements);
+    }
+
+    public function setNotifier(NotifierInterface $notifier)
+    {
+        $this->notifier = $notifier;
+
+        return $this;
+    }
+
+    public function getNotifier()
+    {
+        if ($this->notifier === null) {
+            $this->setNotifier(new NullNotifier());
+        }
+
+        return $this->notifier;
     }
 
     /**
@@ -235,7 +258,9 @@ class FixtureManager
     public function persist()
     {
         foreach ($this->fixtureCollection as $fixture) {
-            $this->getPersister()->persist($fixture);
+            $success = $this->getPersister()->persist($fixture);
+
+            $this->getNotifier()->notify($fixture, $success);
         }
 
         $this->getPersister()->close();
