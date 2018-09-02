@@ -12,6 +12,9 @@
         <blacklist>
             <directory>./vendor</directory>
         </blacklist>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./tests/</directory>
+        </whitelist>
     </filter>
     <php>
         <env name="pdo_host" value="127.0.0.1"/>
