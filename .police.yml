@@ -1,0 +1,6 @@
+checks:
+    has-load-test:
+        enabled: false
+    not-existing-check:
+        enabled: false
+
