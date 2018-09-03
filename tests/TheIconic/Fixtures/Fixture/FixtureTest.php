@@ -38,14 +38,4 @@ class FixtureTest extends TestCase
 
 
     }
-
-    public function testCount()
-    {
-        $this->assertCount(2, $this->testFixture);
-    }
-
-    public function testGetName()
-    {
-        $this->assertEquals('country', $this->testFixture->getName());
-    }
 }
