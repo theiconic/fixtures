@@ -28,24 +28,14 @@ class FixtureTest extends TestCase
     {
         foreach ($this->testFixture as $countryId => $countryData) {
             if ($countryId === 0) {
-                $this->assertEquals('Australia', $countryData['name']);
+                $this->assertEquals('Australia FAILING', $countryData['name']);
             }
 
             if ($countryId === 1) {
-                $this->assertEquals('Venezuela', $countryData['name']);
+                $this->assertEquals('Venezuela FAILING', $countryData['name']);
             }
         }
 
 
-    }
-
-    public function testCount()
-    {
-        $this->assertCount(2, $this->testFixture);
-    }
-
-    public function testGetName()
-    {
-        $this->assertEquals('country', $this->testFixture->getName());
     }
 }

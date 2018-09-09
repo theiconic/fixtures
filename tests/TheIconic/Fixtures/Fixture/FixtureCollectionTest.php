@@ -41,33 +41,6 @@ class FixtureCollectionTest extends TestCase
         $this->testFixtureCollection = FixtureCollection::create($fixtureCountry);
     }
 
-    public function testIterationAndAddAndCount()
-    {
-        foreach ($this->testFixtureCollection as $fixtureName => $fixtureInstance) {
-            $this->assertEquals('country', $fixtureName);
-            $this->assertInstanceOf('TheIconic\Fixtures\Fixture\Fixture', $fixtureInstance);
-        }
-        $this->assertCount(1, $this->testFixtureCollection);
-
-        $fixtureCities = Fixture::create($this->testParsedDataCities);
-        $this->testFixtureCollection->add($fixtureCities);
-
-        $i = 0;
-        foreach ($this->testFixtureCollection as $fixtureName => $fixtureInstance) {
-            if ($i === 0) {
-                $this->assertEquals('country', $fixtureName);
-                $this->assertInstanceOf('TheIconic\Fixtures\Fixture\Fixture', $fixtureInstance);
-            }
-
-            if ($i === 1) {
-                $this->assertEquals('cities', $fixtureName);
-                $this->assertInstanceOf('TheIconic\Fixtures\Fixture\Fixture', $fixtureInstance);
-            }
-
-            $i++;
-        }
-        $this->assertCount(2, $this->testFixtureCollection);
-    }
 
     /**
      * @expectedException \TheIconic\Fixtures\Exception\FixtureException
